@@ -44,5 +44,6 @@ set softtabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
-set rnu
+set nu 
 set autoread
+set mouse=a
