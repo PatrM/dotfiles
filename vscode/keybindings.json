@@ -1,7 +1,20 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "shift+cmd+b",
+        "key": "shift+alt+b",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "xmlTools.formatXml"
+    },
+    {
+        "key": "ctrl+shift+alt+b",
+        "command": "-xmlTools.formatXml"
+    },
+    {
+        "key": "ctrl+shift+b",
         "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
@@ -17,7 +30,7 @@
         "command": "workbench.action.showCommands"
     },
     {
-        "key": "f1",
+        "key": "ctrl+shift+a",
         "command": "-workbench.action.showCommands"
     }
 ]
