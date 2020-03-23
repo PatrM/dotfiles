@@ -19,6 +19,7 @@ Plugin 'airblade/vim-gitgutter'
 " deactivated dracula theme for now Plugin 'dracula/vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'artur-shaik/vim-javacomplete2'
 " ---------------------  "
 
 let g:vue_disable_pre_processors=1
