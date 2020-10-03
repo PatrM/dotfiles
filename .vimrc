@@ -1,3 +1,11 @@
+"" Requirements ""
+" vim-plug:
+"   https://github.com/junegunn/vim-plug
+" :Rg (Ripgrep):
+"   Ubuntu/WSL: https://gist.github.com/kostaz/6e0cf1eee35a34cd6589ec15b58e682c
+"   https://github.com/BurntSushi/ripgrep#installation for OSX
+""
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -34,7 +42,8 @@ set shiftwidth=2
 set autoindent
 set cindent
 set smartindent
-set nu
+set number relativenumber
+set nu rnu
 set wildmenu
 set ttyfast
 set lazyredraw
@@ -67,6 +76,12 @@ set rtp+=~/.fzf
 nnoremap <C-p> :GFiles<Cr>
 " Map fzf + ag search to CTRL P
 nnoremap <C-g> :Ag<Cr>
+
+" Bind enter to cancel search highlighting
+nnoremap <CR> :noh<Cr>
+
+" Mapp buffers to CTRL e (intellij-like)
+nnoremap <C-e> :Buffers<Cr>
 
 " set <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
