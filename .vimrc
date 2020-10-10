@@ -6,8 +6,8 @@
 "   https://github.com/BurntSushi/ripgrep#installation for OSX
 ""
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
 call plug#begin('~/.config/nvim/plugged')
   Plug 'scrooloose/nerdtree'
@@ -20,6 +20,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+" Define CoC extensions
 
 filetype plugin indent on    " required
 let mapleader = " "
@@ -83,6 +85,16 @@ nnoremap <CR> :noh<Cr>
 " Mapp buffers to CTRL e (intellij-like)
 nnoremap <C-e> :Buffers<Cr>
 
+set updatetime=300
+
+"" CoC related stuff below
+""""""""""""""""""""""""""
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " set <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -93,3 +105,27 @@ function! s:check_back_space() abort
           \ pumvisible() ? "\<C-n>" :
           \ <SID>check_back_space() ? "\<Tab>" :
           \ coc#refresh()
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
