@@ -1,4 +1,4 @@
-"" Requirements ""
+"" Requirements 
 " vim-plug:
 "   https://github.com/junegunn/vim-plug
 " :Rg (Ripgrep):
@@ -13,6 +13,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'itchyny/lightline.vim'
   Plug 'airblade/vim-gitgutter'
+  Plug 'liuchengxu/vim-which-key'
   Plug 'tpope/vim-fugitive'
   Plug 'morhetz/gruvbox'
   Plug 'vim-airline/vim-airline'
@@ -20,15 +21,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-
-" Define CoC extensions
-
 filetype plugin indent on    " required
-let mapleader = " "
 
+
+"" NERDTree
 nmap <F6> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeDirArrowExpandable = '‚ñ∏'
+let g:NERDTreeDirArrowCollapsible = '‚ñæ'
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
 syntax on
@@ -74,27 +73,11 @@ set backspace=indent,eol,start
 
 " If fzf installed using git
 set rtp+=~/.fzf
-" Map fzf search to CTRL P
-nnoremap <C-p> :GFiles<Cr>
-" Map fzf + ag search to CTRL P
-nnoremap <C-g> :Ag<Cr>
-
-" Bind enter to cancel search highlighting
-nnoremap <CR> :noh<Cr>
-
-" Mapp buffers to CTRL e (intellij-like)
-nnoremap <C-e> :Buffers<Cr>
 
 set updatetime=300
 
 "" CoC related stuff below
 """"""""""""""""""""""""""
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
 " set <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -106,21 +89,9 @@ function! s:check_back_space() abort
           \ <SID>check_back_space() ? "\<Tab>" :
           \ coc#refresh()
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -129,3 +100,36 @@ function! s:show_documentation()
     call CocActionAsync('doHover')
   endif
 endfunction
+
+"===== Keymappings =======
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+" Use K to show documentation in preview window.
+nnoremap <leader>d :call <SID>show_documentation()<CR>
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Map fzf search to CTRL P
+nnoremap <C-p> :GFiles<Cr>
+" Map fzf + ag search to CTRL P
+nnoremap <C-g> :Ag<Cr>
+" Bind enter to cancel search highlighting
+nnoremap <CR> :noh<Cr>
+" Mapp buffers to CTRL e (intellij-like)
+nnoremap <C-e> :Buffers<Cr>
+
+" Which-Key config
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+set timeoutlen=500
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
