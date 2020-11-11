@@ -23,6 +23,32 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 filetype plugin indent on    " required
 
+  let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-actions',
+    \ 'coc-java-debug',
+    \ 'coc-java',
+    \ 'coc-lists',
+    \ 'coc-emmet',
+    \ 'coc-tasks',
+    \ 'coc-pairs',
+    \ 'coc-tsserver',
+    \ 'coc-floaterm',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-cssmodules',
+    \ 'coc-yaml',
+    \ 'coc-python',
+    \ 'coc-pyright',
+    \ 'coc-svg',
+    \ 'coc-prettier',
+    \ 'coc-vimlsp',
+    \ 'coc-xml',
+    \ 'coc-yank',
+    \ 'coc-json',
+    \ 'coc-marketplace',
+    \ ]
+
 
 "" NERDTree
 nmap <F6> :NERDTreeToggle<CR>
@@ -78,6 +104,7 @@ set updatetime=300
 
 "" CoC related stuff below
 """"""""""""""""""""""""""
+
 " set <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -127,9 +154,19 @@ nnoremap <C-g> :Ag<Cr>
 nnoremap <CR> :noh<Cr>
 " Mapp buffers to CTRL e (intellij-like)
 nnoremap <C-e> :Buffers<Cr>
-
+" Searching / Refactoring
+nnoremap <leader>? CocSearch <C-R>=expand("<cword>")<CR><CR>
 " Which-Key config
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 set timeoutlen=500
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+let g:which_key_map =  {}
+let g:which_key_map['?'] = 'search word'
+
+
+let g:which_key_map.l = {
+  \ 'name' : '+lsp' ,
+  \ 'R' : ['<Plug>(coc-rename)', 'rename'],
+  \ }
