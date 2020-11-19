@@ -52,8 +52,8 @@ filetype plugin indent on    " required
 
 "" NERDTree
 nmap <F6> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '‚ñ∏'
-let g:NERDTreeDirArrowCollapsible = '‚ñæ'
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
 syntax on
