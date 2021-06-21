@@ -19,6 +19,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'puremourning/vimspector'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 filetype plugin indent on    " required
@@ -76,7 +80,8 @@ set ttyfast
 set lazyredraw
 set autoread
 set mouse=a
-
+set ignorecase
+set smartcase
 " folding
 set foldmethod=syntax
 set foldlevel=99
@@ -147,7 +152,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Map fzf search to CTRL P
-nnoremap <C-p> :GFiles<Cr>
+map <expr> <C-p> fugitive#head() != '' ? ':GFiles --cached --others --exclude-standard<CR>' : ':Files<CR>'
+
 " Map fzf + ag search to CTRL P
 nnoremap <C-g> :Ag<Cr>
 " Bind enter to cancel search highlighting
@@ -156,17 +162,30 @@ nnoremap <CR> :noh<Cr>
 nnoremap <C-e> :Buffers<Cr>
 " Searching / Refactoring
 nnoremap <leader>? CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>f :CocFix<CR>
+nmap <leader>i <Plug>CocAction('doHover')
+
 " Which-Key config
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 set timeoutlen=500
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+
 let g:which_key_map =  {}
 let g:which_key_map['?'] = 'search word'
 
 
-let g:which_key_map.l = {
+let g:which_key_map['l'] = {
   \ 'name' : '+lsp' ,
   \ 'R' : ['<Plug>(coc-rename)', 'rename'],
+  \ 'f' : ['<Plug>(coc-fix-current)', 'quick-fix'],
   \ }
+
+
+
+
+" Vimspector
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-java-debug' ]
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap <F1> :CocCommand java.debug.vimspector.start<CR>
