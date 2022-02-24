@@ -63,7 +63,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 -- removed 'tsserver' for now
-local servers = { 'pyright', 'angularls' }
+local servers = { 'pyright', 'angularls', 'tsserver' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
