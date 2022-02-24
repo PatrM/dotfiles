@@ -7,4 +7,4 @@ collection of various configs for e.g. vim/vs code etc.
 
 * Execute `symlink_setup.sh` in root of repository
 * Install Neovim **TODO add unix steps**
-* Install language servers via NPM `npm install -g @angular/language-server pyright`
+* Install language servers via NPM `npm install -g @angular/language-server pyright typescript-language-server typescript`
