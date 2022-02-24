@@ -9,49 +9,27 @@
 set nocompatible
 filetype off
 
+" maybe migrate to https://github.com/wbthomason/packer.nvim "
 call plug#begin('~/.config/nvim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'itchyny/lightline.vim'
   Plug 'airblade/vim-gitgutter'
-  Plug 'liuchengxu/vim-which-key'
   Plug 'tpope/vim-fugitive'
   Plug 'morhetz/gruvbox'
+  Plug 'neovim/nvim-lspconfig'
   Plug 'vim-airline/vim-airline'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
   Plug 'puremourning/vimspector'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'tveskag/nvim-blame-line'
 call plug#end()
 filetype plugin indent on    " required
 
-  let g:coc_global_extensions = [
-    \ 'coc-snippets',
-    \ 'coc-actions',
-    \ 'coc-java-debug',
-    \ 'coc-java',
-    \ 'coc-lists',
-    \ 'coc-emmet',
-    \ 'coc-tasks',
-    \ 'coc-pairs',
-    \ 'coc-tsserver',
-    \ 'coc-floaterm',
-    \ 'coc-html',
-    \ 'coc-css',
-    \ 'coc-cssmodules',
-    \ 'coc-yaml',
-    \ 'coc-python',
-    \ 'coc-pyright',
-    \ 'coc-svg',
-    \ 'coc-prettier',
-    \ 'coc-vimlsp',
-    \ 'coc-xml',
-    \ 'coc-yank',
-    \ 'coc-json',
-    \ 'coc-marketplace',
-    \ ]
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
 
 
 "" NERDTree
@@ -107,50 +85,12 @@ set rtp+=~/.fzf
 
 set updatetime=300
 
-"" CoC related stuff below
-""""""""""""""""""""""""""
-
-" set <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-    let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~ '\s'
-    endfunction
-
-    inoremap <silent><expr> <Tab>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<Tab>" :
-          \ coc#refresh()
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
 
 "===== Keymappings =======
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-" Use K to show documentation in preview window.
-nnoremap <leader>d :call <SID>show_documentation()<CR>
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+
 " Map fzf search to CTRL P
 map <expr> <C-p> fugitive#head() != '' ? ':GFiles --cached --others --exclude-standard<CR>' : ':Files<CR>'
 
@@ -160,30 +100,6 @@ nnoremap <C-g> :Ag<Cr>
 nnoremap <CR> :noh<Cr>
 " Mapp buffers to CTRL e (intellij-like)
 nnoremap <C-e> :Buffers<Cr>
-" Searching / Refactoring
-nnoremap <leader>? CocSearch <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>f :CocFix<CR>
-nmap <leader>i <Plug>CocAction('doHover')
-
-" Which-Key config
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-set timeoutlen=500
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
-
-let g:which_key_map =  {}
-let g:which_key_map['?'] = 'search word'
-
-
-let g:which_key_map['l'] = {
-  \ 'name' : '+lsp' ,
-  \ 'R' : ['<Plug>(coc-rename)', 'rename'],
-  \ 'f' : ['<Plug>(coc-fix-current)', 'quick-fix'],
-  \ }
-
-
-
 
 " Vimspector
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-java-debug' ]
