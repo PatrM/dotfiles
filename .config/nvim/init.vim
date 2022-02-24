@@ -27,8 +27,11 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 filetype plugin indent on    " required
 
+" https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 lua << EOF
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.angularls.setup{}
+
 EOF
 
 
