@@ -23,7 +23,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neovim/nvim-lspconfig'
   Plug 'vim-airline/vim-airline'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
   Plug 'puremourning/vimspector'
   Plug 'tveskag/nvim-blame-line'
 call plug#end()
