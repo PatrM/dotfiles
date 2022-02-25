@@ -9,19 +9,21 @@
 set nocompatible
 filetype off
 
+
+  " Plug 'nvim-lua/popup.nvim'
+
 " maybe migrate to https://github.com/wbthomason/packer.nvim "
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'scrooloose/nerdtree'
   Plug 'itchyny/lightline.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'morhetz/gruvbox'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'neovim/nvim-lspconfig'
   Plug 'vim-airline/vim-airline'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'puremourning/vimspector'
   Plug 'tveskag/nvim-blame-line'
 call plug#end()
@@ -30,6 +32,34 @@ filetype plugin indent on    " required
 " https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 lua << EOF
 
+--------------------------- tree sitter
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- List of parsers to ignore installing
+  ignore_install = { "javascript" },
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- list of language that will be disabled
+    disable = { "c", "rust" },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+--------------------------- tree sitter END
+
+--------------------------- nvim-lsp
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -73,15 +103,32 @@ for _, lsp in pairs(servers) do
     }
   }
 end
+--------------------------- nvim-lsp END
+
+
+--------------------------- telescope
+require('telescope').setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
+  }
+}
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
+--------------------------- telescope END
 
 EOF
 
-
-"" NERDTree
-nmap <F6> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeNodeDelimiter = "\u00a0"
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 syntax on
 syntax enable
@@ -125,9 +172,6 @@ set clipboard=unnamed
 " Delete characters outside of insert area
 set backspace=indent,eol,start
 
-" If fzf installed using git
-set rtp+=~/.fzf
-
 set updatetime=300
 
 
@@ -136,8 +180,6 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 " Use <c-space> to trigger completion.
 
-" Map fzf search to CTRL P
-map <expr> <C-p> fugitive#head() != '' ? ':GFiles --cached --others --exclude-standard<CR>' : ':Files<CR>'
 
 " Map fzf + ag search to CTRL P
 nnoremap <C-g> :Ag<Cr>
