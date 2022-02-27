@@ -17,5 +17,5 @@ collection of various configs for e.g. vim/vs code etc.
 * *Optional for CLI* Fzf <https://github.com/junegunn/fzf>
 * Java
 * Execute `symlink_setup.sh` in root of repository
-* Install language servers for neovim `npm install -g @angular/language-server pyright typescript-language-server typescript`
+* Install language servers for neovim `npm install -g @angular/language-server pyright typescript-language-server typescript dockerfile-language-server-nodejs`
 * Misc tools provided via npm: `npm install -g rimraf`
