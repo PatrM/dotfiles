@@ -14,15 +14,15 @@ filetype off
 
 " maybe migrate to https://github.com/wbthomason/packer.nvim "
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'itchyny/lightline.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'morhetz/gruvbox'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'neovim/nvim-lspconfig'
   Plug 'mfussenegger/nvim-jdtls'
-  Plug 'vim-airline/vim-airline'
+  Plug 'tjdevries/express_line.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'puremourning/vimspector'
@@ -134,6 +134,68 @@ end
 vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>lua project_files()<CR>", {noremap = true, silent = true})
 
 --------------------------- telescope END
+
+--------------------------- icons
+require'nvim-web-devicons'.setup {
+ -- your personnal icons can go here (to override)
+ -- you can specify color or cterm_color instead of specifying both of them
+ -- DevIcon will be appended to `name`
+ override = {
+  zsh = {
+    icon = "",
+    color = "#428850",
+    cterm_color = "65",
+    name = "Zsh"
+  }
+ };
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
+}
+--------------------------- icons END
+
+--------------------------- express-line
+local generator = function()
+    local el_segments = {}
+
+    -- Option 2, just a function that returns a string.
+    local extensions = require('el.extensions')
+    table.insert(el_segments, extensions.mode) -- mode returns the current mode.
+    
+
+    table.insert(el_segments, ' ')
+    -- Option 3, returns a function that takes in a Window and a Buffer.
+    --  See |:help el.Window| and |:help el.Buffer|
+    --
+    --  With this option, you don't have to worry about escaping / calling
+    --  the function in the correct way to get the current buffer and window.
+    local file_namer = function(_window, buffer)
+      return buffer.name
+    end
+    table.insert(el_segments, file_namer)
+
+    table.insert(el_segments, ' ')
+    table.insert(el_segments, extensions.git_icon)
+    table.insert(el_segments, extensions.git_branch)
+    table.insert(el_segments, ' ')
+    -- Option 4, you can return a coroutine.
+    --  In lua, you can cooperatively multi-thread.
+    --  You can use `coroutine.yield()` to yield execution to another coroutine.
+    --
+    --  For example, in luvjob.nvim, there is `co_wait` which is a coroutine
+    --  version of waiting for a job to complete. So you can start multiple
+    --  jobs at once and wait for them to all be done.
+    table.insert(el_segments, extensions.git_changes)
+
+    -- Option 5, there are several helper functions provided to asynchronously
+    --  run timers which update buffer or window variables at a certain frequency.
+    --
+    --  These can be used to set infrequrently updated values without waiting.
+
+    return el_segments
+end
+require('el').setup { generator = generator }
+--------------------------- express-line END
 
 EOF
 
