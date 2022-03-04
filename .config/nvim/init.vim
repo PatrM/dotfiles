@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'neovim/nvim-lspconfig'
+  Plug 'mfussenegger/nvim-jdtls'
   Plug 'vim-airline/vim-airline'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
@@ -120,11 +121,22 @@ require('telescope').setup {
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+
+
+-- TEMPORARY function to use find_files as fallback, should be in separate file (telescope_config.lua)
+project_files = function()
+  local opts = {} -- define here if you want to define something
+  local ok = pcall(require"telescope.builtin".git_files, opts)
+  if not ok then require"telescope.builtin".find_files(opts) end
+end
+
+-- Telescope keymaps
+vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>lua project_files()<CR>", {noremap = true, silent = true})
+
 --------------------------- telescope END
 
 EOF
 
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
