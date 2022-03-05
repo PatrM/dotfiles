@@ -218,35 +218,26 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.opt.wildmode = {'full'}
+vim.wo.number = true
 vim.opt.relativenumber = true
-vim.opt.wildmode = {'list', 'longest'}
-vim.opt.smartcase = true
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
 vim.opt.foldmethod = "syntax"
 vim.opt.mouse = "a"
 vim.opt.swapfile = false
+vim.opt.clipboard = "unnamed"
+
+
+-- Bind enter to cancel search highlighting
+vim.api.nvim_set_keymap("n", "<CR>", " :noh<Cr>", {noremap = true})
+
+-- Indenting, 2 spaces per tab
+-- nmap z za
+
+--Vimspector
+-- let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-java-debug' ]
+-- let g:vimspector_enable_mappings = 'HUMAN'
 ------- END MIGRATION STUFF
 
 EOF
-
-
-syntax on
-syntax enable
-
-" Indenting, 2 spaces per tab
-nmap z za
-
-" Allow copy & paste from system clipboard
-set clipboard=unnamed
-
-
-"===== Keymappings =======
-
-" Bind enter to cancel search highlighting
-nnoremap <CR> :noh<Cr>
-
-" Vimspector
-let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-java-debug' ]
-let g:vimspector_enable_mappings = 'HUMAN'
-nmap <F1> :CocCommand java.debug.vimspector.start<CR>
