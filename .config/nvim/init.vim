@@ -22,16 +22,28 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'neovim/nvim-lspconfig'
   Plug 'mfussenegger/nvim-jdtls'
-  Plug 'tjdevries/express_line.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'puremourning/vimspector'
   Plug 'tveskag/nvim-blame-line'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-nvim-lua'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'L3MON4D3/LuaSnip'
 call plug#end()
 filetype plugin indent on    " required
 
+
 " https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 lua << EOF
+
+-- https://www.notonlycode.org/neovim-lua-config/
+
 
 --------------------------- tree sitter
 require'nvim-treesitter.configs'.setup {
@@ -132,134 +144,107 @@ end
 
 -- Telescope keymaps
 vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>lua project_files()<CR>", {noremap = true, silent = true})
-
 --------------------------- telescope END
 
 --------------------------- icons
 require'nvim-web-devicons'.setup {
- -- your personnal icons can go here (to override)
- -- you can specify color or cterm_color instead of specifying both of them
- -- DevIcon will be appended to `name`
- override = {
-  zsh = {
-    icon = "",
-    color = "#428850",
-    cterm_color = "65",
-    name = "Zsh"
-  }
- };
- -- globally enable default icons (default to false)
- -- will get overriden by `get_icons` option
  default = true;
 }
 --------------------------- icons END
 
---------------------------- express-line
-local generator = function()
-    local el_segments = {}
+--------------------------- nvim-cmp
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-    -- Option 2, just a function that returns a string.
-    local extensions = require('el.extensions')
-    table.insert(el_segments, extensions.mode) -- mode returns the current mode.
-    
+local lspconfig = require('lspconfig')
 
-    table.insert(el_segments, ' ')
-    -- Option 3, returns a function that takes in a Window and a Buffer.
-    --  See |:help el.Window| and |:help el.Buffer|
-    --
-    --  With this option, you don't have to worry about escaping / calling
-    --  the function in the correct way to get the current buffer and window.
-    local file_namer = function(_window, buffer)
-      return buffer.name
-    end
-    table.insert(el_segments, file_namer)
-
-    table.insert(el_segments, ' ')
-    table.insert(el_segments, extensions.git_icon)
-    table.insert(el_segments, extensions.git_branch)
-    table.insert(el_segments, ' ')
-    -- Option 4, you can return a coroutine.
-    --  In lua, you can cooperatively multi-thread.
-    --  You can use `coroutine.yield()` to yield execution to another coroutine.
-    --
-    --  For example, in luvjob.nvim, there is `co_wait` which is a coroutine
-    --  version of waiting for a job to complete. So you can start multiple
-    --  jobs at once and wait for them to all be done.
-    table.insert(el_segments, extensions.git_changes)
-
-    -- Option 5, there are several helper functions provided to asynchronously
-    --  run timers which update buffer or window variables at a certain frequency.
-    --
-    --  These can be used to set infrequrently updated values without waiting.
-
-    return el_segments
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities,
+  }
 end
-require('el').setup { generator = generator }
---------------------------- express-line END
+
+-- luasnip setup
+local luasnip = require 'luasnip'
+
+-- nvim-cmp setup
+local cmp = require 'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    -- ['<C-p>'] = cmp.mapping.select_prev_item(), need to find another hotkey here?
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+  },
+  sources = {
+    { name = 'gh_issues' },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'path' },
+    { name = 'nvim_lua' },
+    { name = 'buffer', keyword_length = 4 },
+  },
+  experimental = {
+    native_menu = false,
+    ghost_text = true
+  }
+}
+--------------------------- nvim-cmp END
+
+
+------- MIGRATION FROM init.vim STUFF BELOW
+vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd> lua require('telescope.builtin').livegrep()<cr>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd> lua require('telescope.builtin').buffers()<cr>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd> lua require('telescope.builtin').help_tags()<cr>", {noremap = true})
+vim.g.mapleader = ";"
+vim.cmd "colorscheme gruvbox"
+vim.opt.termguicolors = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.relativenumber = true
+vim.opt.wildmode = {'list', 'longest'}
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.foldmethod = "syntax"
+vim.opt.mouse = "a"
+vim.opt.swapfile = false
+------- END MIGRATION STUFF
 
 EOF
 
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 syntax on
 syntax enable
-colorscheme gruvbox
-set termguicolors
 
 " Indenting, 2 spaces per tab
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set autoindent
-set cindent
-set smartindent
-set number relativenumber
-set nu rnu
-set wildmenu
-set ttyfast
-set lazyredraw
-set autoread
-set mouse=a
-set ignorecase
-set smartcase
-" folding
-set foldmethod=syntax
-set foldlevel=99
 nmap z za
-
-" Disable backups and swapping
-set nobackup
-set nowritebackup
-set noswapfile
-
-set ignorecase
-set smartcase
-set incsearch
 
 " Allow copy & paste from system clipboard
 set clipboard=unnamed
 
-" Delete characters outside of insert area
-set backspace=indent,eol,start
-
-set updatetime=300
-
 
 "===== Keymappings =======
-let g:mapleader = "\<Space>"
-let g:maplocalleader = ','
-" Use <c-space> to trigger completion.
 
-
-" Map fzf + ag search to CTRL P
-nnoremap <C-g> :Ag<Cr>
 " Bind enter to cancel search highlighting
 nnoremap <CR> :noh<Cr>
-" Mapp buffers to CTRL e (intellij-like)
-nnoremap <C-e> :Buffers<Cr>
 
 " Vimspector
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-java-debug' ]
