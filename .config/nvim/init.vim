@@ -24,7 +24,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mfussenegger/nvim-jdtls'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'puremourning/vimspector'
   Plug 'tveskag/nvim-blame-line'
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-cmp'
@@ -234,10 +233,6 @@ vim.api.nvim_set_keymap("n", "<CR>", " :noh<Cr>", {noremap = true})
 
 -- Indenting, 2 spaces per tab
 -- nmap z za
-
---Vimspector
--- let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-java-debug' ]
--- let g:vimspector_enable_mappings = 'HUMAN'
 ------- END MIGRATION STUFF
 
 EOF
