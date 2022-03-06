@@ -1,8 +1,0 @@
-{
-  "java.referencesCodeLens.enabled": true,
-  "java.implementationsCodeLens.enabled": true,
-  "java.import.maven.enabled": true,
-  "java.completion.guessMethodArguments": true,
-  "java.maven.updateSnapshots": true
-}
-
