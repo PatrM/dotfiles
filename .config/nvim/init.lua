@@ -1,45 +1,42 @@
-"" Requirements 
-" vim-plug:
-"   https://github.com/junegunn/vim-plug
-" :Rg (Ripgrep):
-"   Ubuntu/WSL: https://gist.github.com/kostaz/6e0cf1eee35a34cd6589ec15b58e682c
-"   https://github.com/BurntSushi/ripgrep#installation for OSX
-""
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
-set nocompatible
-filetype off
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+end
 
+vim.cmd [[
+  augroup Packer
+    autocmd!
+    autocmd BufWritePost init.lua PackerCompile
+  augroup end
+]]
 
-  " Plug 'nvim-lua/popup.nvim'
+require('packer').startup(function(use)
 
-" maybe migrate to https://github.com/wbthomason/packer.nvim "
-call plug#begin('~/.config/nvim/plugged')
-  Plug 'airblade/vim-gitgutter'
-  Plug 'tpope/vim-fugitive'
-  Plug 'morhetz/gruvbox'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'mfussenegger/nvim-jdtls'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'tveskag/nvim-blame-line'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-nvim-lua'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'saadparwaiz1/cmp_luasnip'
-  Plug 'L3MON4D3/LuaSnip'
-call plug#end()
-filetype plugin indent on    " required
+  use 'wbthomason/packer.nvim'
+  use 'airblade/vim-gitgutter'
+  use 'tpope/vim-fugitive'
+  use 'morhetz/gruvbox'
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'kyazdani42/nvim-web-devicons'
+  use 'neovim/nvim-lspconfig'
+  use 'mfussenegger/nvim-jdtls'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim'
+  use 'tveskag/nvim-blame-line'
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip'
 
+end)
 
-" https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-lua << EOF
 
 -- https://www.notonlycode.org/neovim-lua-config/
 
@@ -234,5 +231,3 @@ vim.api.nvim_set_keymap("n", "<CR>", " :noh<Cr>", {noremap = true})
 -- Indenting, 2 spaces per tab
 -- nmap z za
 ------- END MIGRATION STUFF
-
-EOF
