@@ -11,7 +11,6 @@ vim.cmd [[
     autocmd BufWritePost init.lua PackerCompile
   augroup end
 ]]
-
 require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
@@ -40,6 +39,7 @@ end)
 -- https://www.notonlycode.org/neovim-lua-config/
 
 require('nvim-lsp-config')
+require('nvim-cmp-config')
 require('telescope-config')
 --------------------------- tree sitter
 require'nvim-treesitter.configs'.setup {
