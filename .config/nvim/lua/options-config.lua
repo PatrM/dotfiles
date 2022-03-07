@@ -11,6 +11,7 @@ vim.opt.ignorecase = true
 vim.opt.incsearch = true
 vim.opt.foldmethod = "syntax"
 vim.opt.mouse = "a"
+vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.clipboard = "unnamed"
 vim.cmd "colorscheme gruvbox"
