@@ -23,3 +23,5 @@ end
 
 -- Telescope keymaps
 vim.keymap.set('n', '<C-p>', project_files, {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>fw', require'telescope.builtin'.grep_string, {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>fa', require'telescope.builtin'.live_grep, {silent = true, noremap = true})

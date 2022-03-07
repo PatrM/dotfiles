@@ -45,6 +45,7 @@ require('packer').startup(function(use)
 end)
 
 
+vim.g.mapleader = ";"
 -- https://www.notonlycode.org/neovim-lua-config/
 require('options-config')
 require('treesitter-config')
@@ -60,7 +61,6 @@ require'nvim-web-devicons'.setup {
 }
 --------------------------- icons END
 
-vim.g.mapleader = ";"
 vim.keymap.set("n", "<CR>", " :noh<Cr>", {noremap = true}) -- cancel search highlight with enter
 vim.keymap.set("n", "<leader>fg", "<cmd> lua require('telescope.builtin').livegrep()<cr>", {noremap = true})
 vim.keymap.set("n", "<leader>fb", "<cmd> lua require('telescope.builtin').buffers()<cr>", {noremap = true})
