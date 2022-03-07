@@ -19,6 +19,9 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
 
+  -- Status
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
+
   -- Styling
   use 'morhetz/gruvbox'
   use 'kyazdani42/nvim-web-devicons'
@@ -49,6 +52,8 @@ require('nvim-lsp-config')
 require('nvim-cmp-config')
 require('telescope-config')
 
+-- Status line
+require('lualine').setup();
 --------------------------- icons
 require'nvim-web-devicons'.setup {
  default = true;
