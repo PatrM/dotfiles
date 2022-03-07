@@ -45,7 +45,7 @@ require('packer').startup(function(use)
 end)
 
 
-vim.g.mapleader = ";"
+vim.g.mapleader = ' '
 -- https://www.notonlycode.org/neovim-lua-config/
 require('options-config')
 require('treesitter-config')
