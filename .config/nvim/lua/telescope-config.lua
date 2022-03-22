@@ -1,4 +1,7 @@
 require('telescope').setup {
+  defaults = {
+    path_display = {'tail'}
+  },
   extensions = {
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
