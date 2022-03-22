@@ -23,6 +23,14 @@ require('packer').startup(function(use)
   use 'morhetz/gruvbox'
   use 'kyazdani42/nvim-web-devicons'
 
+  use {
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+        'kyazdani42/nvim-web-devicons', -- optional, for file icon
+      },
+      config = function() require'nvim-tree'.setup {} end
+  }
+
   -- Git related
   use 'tveskag/nvim-blame-line'
   use 'airblade/vim-gitgutter'
@@ -51,14 +59,15 @@ require('nvim-cmp-config')
 require('telescope-config')
 
 
---------------------------- netrw config
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_browse_split = 4
-vim.g.netrw_altv = 1
-vim.g.netrw_winsize = 25
---------------------------- netrw end
 
+--------------------------- nvim-tree
+require'nvim-tree'.setup()
+vim.g.nvim_tree_indent_markers = 1
+vim.g.nvim_tree_git_highlights = 1
+vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<cr>", {noremap = true})
+vim.keymap.set("n", "<leader>tf", "<cmd>NvimTreeFindFile<cr>", {noremap = true})
+vim.keymap.set("n", "<leader>tr", "<cmd>NvimTreeRefresh<cr>", {noremap = true})
+--------------------------- nvim-tree end
 
 
 -- Status line
