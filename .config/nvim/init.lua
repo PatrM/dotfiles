@@ -50,6 +50,7 @@ require('packer').startup(function(use)
 end)
 
 
+
 vim.g.mapleader = ' '
 -- https://www.notonlycode.org/neovim-lua-config/
 require('options-config')
@@ -70,7 +71,6 @@ vim.keymap.set("n", "<leader>tr", "<cmd>NvimTreeRefresh<cr>", {noremap = true})
 --------------------------- nvim-tree end
 
 
--- Status line
 --------------------------- icons
 require'nvim-web-devicons'.setup {
  default = true;
