@@ -78,8 +78,10 @@ require'nvim-web-devicons'.setup {
 --------------------------- icons END
 
 vim.keymap.set("n", "<CR>", " :noh<Cr>", {noremap = true}) -- cancel search highlight with enter
-vim.keymap.set("n", "<leader>fg", "<cmd> lua require('telescope.builtin').livegrep()<cr>", {noremap = true})
-vim.keymap.set("n", "<leader>fb", "<cmd> lua require('telescope.builtin').buffers()<cr>", {noremap = true})
-vim.keymap.set("n", "<leader>fh", "<cmd> lua require('telescope.builtin').help_tags()<cr>", {noremap = true})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer = 0, noremap = true})
 
+
+--------------------------- buffer movement
+vim.keymap.set("n", "<leader>b.", "<cmd>bnext<cr>", {noremap = true})
+vim.keymap.set("n", "<leader>b,", "<cmd>bprevious<cr>", {noremap = true})
+--------------------------- buffer movement END
