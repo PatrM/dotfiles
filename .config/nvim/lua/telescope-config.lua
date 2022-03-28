@@ -1,9 +1,8 @@
 require('telescope').setup {
   -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
   defaults = {
-    path_display = {'tail'},
-    path_display = { "truncate" },
     winblend = 0,
+    path_display = {'smart'},
     border = {},
     borderchars = { "─", "│", "─", "│", '┌', '┐', '┘', '└' },
     color_devicons = true,
@@ -44,7 +43,7 @@ require('telescope').load_extension('fzf')
 project_files = function()
   local opts = {
     previewer = false,
-    path_display = {'tail'},
+ --   path_display = {'smart'},
   } -- define here if you want to define something
   local ok = pcall(require'telescope.builtin'.git_files, opts)
   if not ok then require'telescope.builtin'.find_files(opts) end
