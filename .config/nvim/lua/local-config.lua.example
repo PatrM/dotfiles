@@ -1,0 +1,14 @@
+local M = {}
+-- home dir of system. could be read from OS as well
+M.home_dir = 'TBD'
+
+
+M.jdtls = {
+  work_dir = 'TBD',
+  jdtls_dir = 'TBD',
+  jdtls_dir_launcher = 'TBD',
+  jdtls_system_config = 'TBD,
+  java_command = "java", -- or direct java path if java isn't in $PATH
+}
+
+return M
