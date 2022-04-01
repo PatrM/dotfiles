@@ -1,27 +1,6 @@
 local M = {}
 function M.setup(config)
-  
-  assert(config, 'config is required')
-  assert(config.on_attach, 'on_attach must be set')
-
-  --- ========= BELOW NEEDS TO BE MODIFIED ===========
-  -- eclipse workspace directory
-  local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-  local workdir = '/Users/patrick/dev/workspaces/' .. project_name
-
-  -- rootdir of jdtls
-  local jdtls_dir = '/Users/patrick/dev/tools/jdtls/jdt-language-server-1.9.0-202203031534'
-
-  -- launcher jar for jdt language server 
-  local jdtls_dir_launcher = jdtls_dir .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'
-
-  -- needs to be modified if not on mac
-  local jdtls_system_config = jdtls_dir .. '/config_mac'
-
-  -- can be replaced with direct path to java if 'java' isn't in $PATH
-  local java_command = 'java'
-  
-  -- ========= END MODIFICATION
+  local local_config = require('local-config')
 
   vim.cmd [[
     command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)
@@ -34,7 +13,7 @@ function M.setup(config)
 
   -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
   local jdtls_config = {}
-  
+
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   jdtls_config.capabilities =  capabilities
 
@@ -45,7 +24,7 @@ function M.setup(config)
   end
 
   jdtls_config.cmd = {
-    java_command,
+    local_config.jdtls.java_command,
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -55,9 +34,9 @@ function M.setup(config)
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', jdtls_dir_launcher,
-    '-configuration', jdtls_system_config,
-    '-data', workdir
+    '-jar', local_config.jdtls.jdtls_dir_launcher,
+    '-configuration', local_config.jdtls.jdtls_system_config,
+    '-data', local_config.jdtls.work_dir
   }
   jdtls_config.root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'})
 

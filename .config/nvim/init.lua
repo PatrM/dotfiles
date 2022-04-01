@@ -22,7 +22,6 @@ require('packer').startup(function(use)
   -- Styling
   use 'morhetz/gruvbox'
   use 'kyazdani42/nvim-web-devicons'
-
   use {
       'kyazdani42/nvim-tree.lua',
       requires = {
@@ -50,8 +49,9 @@ require('packer').startup(function(use)
 end)
 
 
-
+--------------------------- leader definition
 vim.g.mapleader = ' '
+
 -- https://www.notonlycode.org/neovim-lua-config/
 require('options-config')
 require('treesitter-config')
@@ -68,15 +68,15 @@ vim.g.nvim_tree_git_highlights = 1
 vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<cr>", {noremap = true})
 vim.keymap.set("n", "<leader>tf", "<cmd>NvimTreeFindFile<cr>", {noremap = true})
 vim.keymap.set("n", "<leader>tr", "<cmd>NvimTreeRefresh<cr>", {noremap = true})
---------------------------- nvim-tree end
-
 
 --------------------------- icons
 require'nvim-web-devicons'.setup {
  default = true;
 }
---------------------------- icons END
 
+--------------------------- status line
+
+--------------------------- misc keymap definitions where i have no clue to place them instead (yet)
 vim.keymap.set("n", "<CR>", " :noh<Cr>", {noremap = true}) -- cancel search highlight with enter
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer = 0, noremap = true})
 
@@ -84,4 +84,3 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer = 0, noremap 
 --------------------------- buffer movement
 vim.keymap.set("n", "<leader>b.", "<cmd>bnext<cr>", {noremap = true})
 vim.keymap.set("n", "<leader>b,", "<cmd>bprevious<cr>", {noremap = true})
---------------------------- buffer movement END

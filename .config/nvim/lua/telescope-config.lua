@@ -22,6 +22,11 @@ require('telescope').setup {
   pickers = {
     find_files = {
 
+    },
+    live_grep = {
+--      additional_args = function (opts)
+--        return {'--hidden', '--glob "!.git/"'}
+--      end
     }
   },
   extensions = {
@@ -48,9 +53,22 @@ project_files = function()
   local ok = pcall(require'telescope.builtin'.git_files, opts)
   if not ok then require'telescope.builtin'.find_files(opts) end
 end
+all_project_files = function()
+  local find_files_opts = {
+    previewer = false,
+    no_ignore = true
+  } 
+  local find_files_opts = {
+    previewer = false,
+    git_command = {'git', 'ls-files', 'cached'}
+  } 
+  local ok = pcall(require'telescope.builtin'.git_files, opts)
+  if not ok then require'telescope.builtin'.find_files(find_files_opts) end
+end
 
 -- Telescope keymaps
 vim.keymap.set('n', '<leader>ff', project_files, {silent = true, noremap = true})
+--vim.keymap.set('n', '<leader><Shift>F', all_project_files, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>bb', require'telescope.builtin'.buffers, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>gr', require'telescope.builtin'.lsp_references, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>fw', require'telescope.builtin'.grep_string, {silent = true, noremap = true})
