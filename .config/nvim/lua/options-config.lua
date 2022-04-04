@@ -1,0 +1,17 @@
+vim.opt.termguicolors = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.wildmode = {'full'}
+vim.wo.number = true
+vim.opt.relativenumber = true
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.foldmethod = "syntax"
+vim.opt.mouse = "a"
+vim.opt.cursorline = true
+vim.opt.swapfile = false
+vim.opt.clipboard = "unnamed"
+vim.cmd "colorscheme gruvbox"
