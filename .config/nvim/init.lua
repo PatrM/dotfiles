@@ -18,6 +18,7 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
+  use 'tpope/vim-surround'
 
   -- Styling
   use 'morhetz/gruvbox'
@@ -59,15 +60,17 @@ require('nvim-lsp-config')
 require('nvim-cmp-config')
 require('telescope-config')
 
-
-
 --------------------------- nvim-tree
-require'nvim-tree'.setup()
+require'nvim-tree'.setup{
+  open_on_setup = false,
+  open_on_setup_file = false,
+  auto_reload_on_write = true,
+}
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_highlights = 1
-vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<cr>", {noremap = true})
-vim.keymap.set("n", "<leader>tf", "<cmd>NvimTreeFindFile<cr>", {noremap = true})
-vim.keymap.set("n", "<leader>tr", "<cmd>NvimTreeRefresh<cr>", {noremap = true})
+vim.keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', {noremap = true})
+vim.keymap.set('n', '<leader>tf', '<cmd>NvimTreeFindFile<cr>', {noremap = true})
+vim.keymap.set('n', '<leader>tr', '<cmd>NvimTreeRefresh<cr>', {noremap = true})
 
 --------------------------- icons
 require'nvim-web-devicons'.setup {
@@ -77,10 +80,12 @@ require'nvim-web-devicons'.setup {
 --------------------------- status line
 
 --------------------------- misc keymap definitions where i have no clue to place them instead (yet)
-vim.keymap.set("n", "<CR>", " :noh<Cr>", {noremap = true}) -- cancel search highlight with enter
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer = 0, noremap = true})
+vim.keymap.set('n', '<CR>', ' :noh<Cr>', {noremap = true}) -- cancel search highlight with enter
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {buffer = 0, noremap = true})
+vim.keymap.set('n', '<leader>dd','"_dd', {noremap = true})
+vim.keymap.set('v', '<leader>dv','"_d', {noremap = true})
 
 
 --------------------------- buffer movement
-vim.keymap.set("n", "<leader>b.", "<cmd>bnext<cr>", {noremap = true})
-vim.keymap.set("n", "<leader>b,", "<cmd>bprevious<cr>", {noremap = true})
+vim.keymap.set('n', '<leader>b.', '<cmd>bnext<cr>', {noremap = true})
+vim.keymap.set('n', '<leader>b,', '<cmd>bprevious<cr>', {noremap = true})
