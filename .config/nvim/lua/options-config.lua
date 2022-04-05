@@ -13,5 +13,5 @@ vim.opt.foldmethod = "syntax"
 vim.opt.mouse = "a"
 vim.opt.cursorline = true
 vim.opt.swapfile = false
-vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamedplus"
 vim.cmd "colorscheme gruvbox"

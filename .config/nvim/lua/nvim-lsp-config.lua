@@ -26,7 +26,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, {buffer=0})
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {buffer=0})
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, {buffer=0})
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, {buffer=0})
+  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, {buffer=0}) -- this is defined in telescope config, as we don't get a separate picker window here
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, {buffer=0})
 end
 

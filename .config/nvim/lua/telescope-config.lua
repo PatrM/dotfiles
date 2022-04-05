@@ -70,7 +70,7 @@ end
 vim.keymap.set('n', '<leader>ff', project_files, {silent = true, noremap = true})
 --vim.keymap.set('n', '<leader><Shift>F', all_project_files, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>bb', require'telescope.builtin'.buffers, {silent = true, noremap = true})
-vim.keymap.set('n', '<leader>gr', require'telescope.builtin'.lsp_references, {silent = true, noremap = true})
+vim.keymap.set('n', 'gr', require'telescope.builtin'.lsp_references, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>fw', require'telescope.builtin'.grep_string, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>fa', require'telescope.builtin'.live_grep, {silent = true, noremap = true})
 vim.keymap.set("n", "<leader>fh", require'telescope.builtin'.help_tags, {noremap = true})
