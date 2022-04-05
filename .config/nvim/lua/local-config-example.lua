@@ -19,4 +19,16 @@ M.jdtls = {
   java_command = "java", -- or direct java path if java isn't in $PATH
 }
 
+M.dbui = {
+  dbs = {
+    local_with_password = 'postgres://postgres:mypassword@localhost:5432/postgres',
+    local_without_password = 'postgres://postgres@localhost:5432/postgres', -- this will popup with a password prompt when starting connection
+  },
+  helpers = {
+    postgres = {
+      count = 'select count(*) from "{table}"'
+    },
+  },
+}
+
 return M

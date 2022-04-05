@@ -1,5 +1,6 @@
 -- clone packer if it doesn't exist yet
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local local_config = require('local-config')
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
@@ -47,6 +48,10 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
 
+  -- SQL
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
+
 end)
 
 
@@ -78,6 +83,11 @@ require'nvim-web-devicons'.setup {
 }
 
 --------------------------- status line
+-- TBD :(
+
+--------------------------- SQL (DadBod)
+vim.g.dbs = local_config.dbui.dbs
+vim.g.db_ui_table_helpers = local_config.dbui.helpers
 
 --------------------------- misc keymap definitions where i have no clue to place them instead (yet)
 vim.keymap.set('n', '<CR>', ' :noh<Cr>', {noremap = true}) -- cancel search highlight with enter
