@@ -48,6 +48,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lua'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
+  use 'ray-x/lsp_signature.nvim'
 
   -- SQL
   use 'tpope/vim-dadbod'
@@ -64,6 +65,7 @@ require('options-config')
 require('treesitter-config')
 require('nvim-lsp-config')
 require('nvim-cmp-config')
+require('signature-config')
 require('telescope-config')
 
 --------------------------- nvim-tree
