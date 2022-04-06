@@ -19,6 +19,7 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
+  use {'nvim-telescope/telescope-ui-select.nvim' }
   use 'tpope/vim-surround'
 
   -- Styling

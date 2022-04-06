@@ -46,9 +46,11 @@ function M.setup(config)
     java = {
     }
   }
-  jdtls_config.init_options = {
-    bundles = {}
-  },
+
+  -- commented below for now to investigate class loading issues
+  --jdtls_config.init_options = {
+  --  bundles = {}
+  --},
 
   -- This starts a new client & server,
   -- or attaches to an existing client & server depending on the `root_dir`.
