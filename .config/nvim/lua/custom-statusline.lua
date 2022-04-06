@@ -130,7 +130,6 @@ Statusline.active = function()
     filepath(),
     filename(),
     "%=%#StatusLineExtra#",
-    lsp(),
     filetype(),
     lineinfo(),
   }

@@ -78,6 +78,12 @@ require'nvim-tree'.setup{
   ignore_ft_on_setup = {
     "startify",
   },
+  view = {
+    width = 30,
+  },
+  open_file = {
+    quit_on_open = true,
+  },
 }
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_highlights = 1
