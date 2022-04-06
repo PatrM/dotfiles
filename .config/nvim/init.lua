@@ -37,8 +37,6 @@ require('packer').startup(function(use)
   use 'mhinz/vim-startify'
 
   -- Git related
-  use 'tveskag/nvim-blame-line'
-  use 'airblade/vim-gitgutter'
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
 
