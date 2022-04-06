@@ -33,10 +33,14 @@ require('packer').startup(function(use)
       config = function() require'nvim-tree'.setup {} end
   }
 
+  -- Dashboard
+  use 'mhinz/vim-startify'
+
   -- Git related
   use 'tveskag/nvim-blame-line'
   use 'airblade/vim-gitgutter'
   use 'tpope/vim-fugitive'
+  use 'lewis6991/gitsigns.nvim'
 
   -- LSP & CMP
   use 'neovim/nvim-lspconfig'
@@ -67,12 +71,15 @@ require('nvim-lsp-config')
 require('nvim-cmp-config')
 require('signature-config')
 require('telescope-config')
-
+require('custom-statusline')
 --------------------------- nvim-tree
 require'nvim-tree'.setup{
   open_on_setup = false,
   open_on_setup_file = false,
   auto_reload_on_write = true,
+  ignore_ft_on_setup = {
+    "startify",
+  },
 }
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_highlights = 1
@@ -80,13 +87,17 @@ vim.keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>tf', '<cmd>NvimTreeFindFile<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>tr', '<cmd>NvimTreeRefresh<cr>', {noremap = true})
 
+--------------------------- Dashboard
+vim.g.startify_change_to_vcs_root = 1
 --------------------------- icons
 require'nvim-web-devicons'.setup {
  default = true;
 }
 
+--------------------------- gitsigns
+require('gitsigns').setup()
+
 --------------------------- status line
--- TBD :(
 
 --------------------------- SQL (DadBod)
 vim.g.dbs = local_config.dbui.dbs
