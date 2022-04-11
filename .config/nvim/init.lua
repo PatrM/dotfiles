@@ -56,6 +56,8 @@ require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
 
+  use 'simrat39/symbols-outline.nvim'
+
   -- SQL
   use 'tpope/vim-dadbod'
   use 'kristijanhusak/vim-dadbod-ui'
@@ -107,6 +109,14 @@ require('gitsigns').setup()
 
 --------------------------- status line
 
+--------------------------- symbols-outline
+vim.g.symbols_outline = {
+  auto_close = true,
+  auto_preview = false,
+  width = 35,
+
+}
+
 --------------------------- SQL (DadBod)
 vim.g.dbs = local_config.dbui.dbs
 vim.g.db_ui_table_helpers = local_config.dbui.helpers
@@ -116,6 +126,7 @@ vim.keymap.set('n', '<CR>', ' :noh<Cr>', {noremap = true}) -- cancel search high
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {buffer = 0, noremap = true})
 vim.keymap.set('n', '<leader>dd','"_dd', {noremap = true})
 vim.keymap.set('v', '<leader>dv','"_d', {noremap = true})
+vim.keymap.set('n', '<leader>tf','<cmd>SymbolsOutline<cr>', {noremap = true})
 
 
 --------------------------- buffer movement
