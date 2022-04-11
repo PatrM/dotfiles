@@ -51,6 +51,10 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
   use 'ray-x/lsp_signature.nvim'
+  use 'microsoft/java-debug'
+  use 'microsoft/vscode-java-test'
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
 
   -- SQL
   use 'tpope/vim-dadbod'

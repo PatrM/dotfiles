@@ -19,8 +19,9 @@ function M.setup(config)
 
   jdtls_config.on_attach = function (client, bufnr)
     require('jdtls.setup').add_commands()
+    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    -- require('jdtls.dap').setup_dap_main_class_configs()
     config.on_attach(client, bufnr)
-
   end
 
   jdtls_config.cmd = {
@@ -44,7 +45,7 @@ function M.setup(config)
   -- for a list of options
   jdtls_config.settings = {
     java = {
-           eclipse = {
+      eclipse = {
         downloadSources = true,
       },
       configuration = {
@@ -63,11 +64,16 @@ function M.setup(config)
         includeDecompiledSources = true,
       },
       format = {
-        enabled = false,
-        -- settings = {
-        --   profile = "asdf"
-        -- }
+        enabled = true,
+          settings = {
+            -- see https://github.com/mfussenegger/nvim-jdtls/issues/203 for some discussions
+            --  profile = "asdf",
+            --  url = 'as/df,
+        }
       },
+      project = {
+        referencedLibraries = local_config.jdtls.referenced_libraries
+      }
     },
     signatureHelp = { enabled = true },
     completion = {
@@ -83,10 +89,31 @@ function M.setup(config)
     },
   }
 
-  -- commented below for now to investigate class loading issues
-  --jdtls_config.init_options = {
-  --  bundles = {}
-  --},
+  local bundles = {
+  vim.fn.glob(local_config.jdtls.java_debug_dir),
+  }
+
+  vim.list_extend(bundles, vim.split(vim.fn.glob(local_config.jdtls.vscode_java_test_dir), "\n"))
+
+
+  -- for some reason this seems to be overridden internally as soon as we use init_options, so we have to set the default values manually again
+  local default_capabilities = {
+    progressReportProvider = true;
+    classFileContentsSupport = true;
+    generateToStringPromptSupport = true;
+    hashCodeEqualsPromptSupport = true;
+    advancedExtractRefactoringSupport = true;
+    advancedOrganizeImportsSupport = true;
+    generateConstructorsPromptSupport = true;
+    generateDelegateMethodsPromptSupport = true;
+    moveRefactoringSupport = true;
+    inferSelectionSupport = {"extractMethod", "extractVariable", "extractConstant"};
+  }
+
+  jdtls_config.init_options = {
+    bundles = bundles,
+    extendedClientCapabilities = default_capabilities,
+  },
 
   -- This starts a new client & server,
   -- or attaches to an existing client & server depending on the `root_dir`.
