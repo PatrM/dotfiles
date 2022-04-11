@@ -94,7 +94,7 @@ require'nvim-tree'.setup{
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_highlights = 1
 vim.keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', {noremap = true})
-vim.keymap.set('n', '<leader>tf', '<cmd>NvimTreeFindFile<cr>', {noremap = true})
+vim.keymap.set('n', '<leader>to', '<cmd>NvimTreeFindFile<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>tr', '<cmd>NvimTreeRefresh<cr>', {noremap = true})
 
 --------------------------- Dashboard
