@@ -1,4 +1,14 @@
-set relativenumber
+set relativeumber
 set number
 set ignorecase
 set smartcase
+let mapleader = " "
+
+if has('ide')
+  nnoremap <leader>ff :action GotoFile<cr>
+  nnoremap <leader>ar :action Run<cr>
+  nnoremap <leader>ad :action Debug<cr>
+  nnoremap <leader>fw :action SelectInProjectView<cr>
+  nnoremap <leader>rr :action RenameElement<cr>
+  nnoremap gr :action ShowUsages<cr>
+endifn
