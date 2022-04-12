@@ -15,7 +15,7 @@ vim.cmd [[
 require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use { 'nvim-treesitter/nvim-treesitter', before = 'neorg', run = ':TSUpdate'}
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
@@ -56,7 +56,21 @@ require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
 
+  -- Symbols outline
   use 'simrat39/symbols-outline.nvim'
+
+  -- Neorg documentation
+   use {
+    "nvim-neorg/neorg",
+    config = function()
+        require('neorg').setup {
+          load = {
+            ["core.defaults"] = {}
+          }
+        }
+    end,
+    requires = "nvim-lua/plenary.nvim"
+  }
 
   -- SQL
   use 'tpope/vim-dadbod'
