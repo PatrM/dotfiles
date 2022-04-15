@@ -1,4 +1,5 @@
 source ~/.aliases
+source ~/.aliases-local || true
 
 
 fpath+=$HOME/.zsh/pure

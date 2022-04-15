@@ -1,2 +1,3 @@
 .config/nvim/lua/local-config.lua
 .DS_Store
+.aliases-local
