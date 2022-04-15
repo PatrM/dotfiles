@@ -77,6 +77,7 @@ require('nvim-cmp-config')
 require('signature-config')
 require('telescope-config')
 require('custom-statusline')
+require('custom-note-taking')
 --------------------------- nvim-tree
 require'nvim-tree'.setup{
   open_on_setup = false,
