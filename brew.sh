@@ -1,6 +1,5 @@
 #!/bin/bash
 
-brew install neovim --HEAD
 brew install git
 brew install tmux
 brew install fd
