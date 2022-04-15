@@ -1,27 +1,5 @@
--- Neorg parser setup
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
--- These two are optional and provide syntax highlighting
--- for Neorg tables and the @document.meta tag
-parser_configs.norg_meta = {
-    install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
-        files = { "src/parser.c" },
-        branch = "main"
-    },
-}
-
-parser_configs.norg_table = {
-    install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
-        files = { "src/parser.c" },
-        branch = "main"
-    },
-}
-
-
 require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {'norg', 'java', 'javascript', 'typescript', 'markdown', 'html', 'css', 'python', 'kotlin', 'lua', 'c_sharp', 'go', 'latex', 'json', 'jsdoc', 'tsx', 'vue', 'yaml', 'dockerfile', 'graphql'},
+  ensure_installed = {'java', 'javascript', 'typescript', 'markdown', 'html', 'css', 'python', 'kotlin', 'lua', 'c_sharp', 'go', 'latex', 'json', 'jsdoc', 'tsx', 'vue', 'yaml', 'dockerfile', 'graphql'},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,

@@ -15,7 +15,7 @@ vim.cmd [[
 require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
-  use { 'nvim-treesitter/nvim-treesitter', before = 'neorg', run = ':TSUpdate'}
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
@@ -59,19 +59,6 @@ require('packer').startup(function(use)
   -- Symbols outline
   use 'simrat39/symbols-outline.nvim'
 
-  -- Neorg documentation
-   use {
-    "nvim-neorg/neorg",
-    config = function()
-        require('neorg').setup {
-          load = {
-            ["core.defaults"] = {}
-          }
-        }
-    end,
-    requires = "nvim-lua/plenary.nvim"
-  }
-
   -- SQL
   use 'tpope/vim-dadbod'
   use 'kristijanhusak/vim-dadbod-ui'
@@ -105,7 +92,6 @@ require'nvim-tree'.setup{
     quit_on_open = true,
   },
 }
-vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_highlights = 1
 vim.keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>to', '<cmd>NvimTreeFindFile<cr>', {noremap = true})
