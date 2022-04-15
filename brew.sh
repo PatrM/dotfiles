@@ -11,6 +11,8 @@ brew instal lua-language-server
 brew install luajit
 brew install luajit-openresty
 brew install ruby
+brew install git-delta
+brew install bat
 
 # casks
 
