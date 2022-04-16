@@ -51,9 +51,13 @@ dapui.setup {
   windows = { indent = 1 },
 }
 
-local icons = require "user.icons"
+-- TODO below might overwrite some default stuff :s
 
-vim.fn.sign_define('DapBreakpoint', {text=icons.ui.Bug, texthl='DiagnosticSignError', linehl='', numhl=''})
+vim.cmd [[
+  command! -buffer DebuggerToggle lua require('dapui').toggle()
+  command! -buffer DebuggerEval lua require('dapui').eval(nil)
+  command! -buffer DebuggerBreakpointToggle lua require('dap').toggle_breakpoint()
+]]
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
@@ -64,3 +68,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+
+

@@ -76,6 +76,7 @@ require('nvim-lsp-config')
 require('nvim-cmp-config')
 require('signature-config')
 require('telescope-config')
+require('dap-config')
 require('custom-statusline')
 require('custom-note-taking')
 --------------------------- nvim-tree

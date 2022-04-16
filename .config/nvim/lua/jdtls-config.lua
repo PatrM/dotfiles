@@ -9,6 +9,8 @@ function M.setup(config)
     command! -buffer JdtJol lua require('jdtls').jol()
     command! -buffer JdtBytecode lua require('jdtls').javap()
     command! -buffer JdtJshell lua require('jdtls').jshell()
+    command! -buffer JdtTestMethod lua require('jdtls').test_nearest_method()
+    command! -buffer JdtTestClass lua require('jdtls').test_class()
   ]]
 
   -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
@@ -35,7 +37,7 @@ function M.setup(config)
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', local_config.jdtls.jdtls_dir_launcher,
+    '-jar', vim.fn.glob(local_config.jdtls.jdtls_dir_launcher),
     '-configuration', local_config.jdtls.jdtls_system_config,
     '-data', local_config.jdtls.work_dir
   }
@@ -90,30 +92,19 @@ function M.setup(config)
   }
 
   local bundles = {
-  vim.fn.glob(local_config.jdtls.java_debug_dir),
+    vim.fn.glob(local_config.jdtls.java_debug_dir),
   }
-
+  vim.notify(local_config.jdtls.vscode_java_test_dir, vim.log.levels.INFO)
   vim.list_extend(bundles, vim.split(vim.fn.glob(local_config.jdtls.vscode_java_test_dir), "\n"))
 
 
-  -- for some reason this seems to be overridden internally as soon as we use init_options, so we have to set the default values manually again
-  local default_capabilities = {
-    progressReportProvider = true;
-    classFileContentsSupport = true;
-    generateToStringPromptSupport = true;
-    hashCodeEqualsPromptSupport = true;
-    advancedExtractRefactoringSupport = true;
-    advancedOrganizeImportsSupport = true;
-    generateConstructorsPromptSupport = true;
-    generateDelegateMethodsPromptSupport = true;
-    moveRefactoringSupport = true;
-    inferSelectionSupport = {"extractMethod", "extractVariable", "extractConstant"};
-  }
+  local default_capabilities = require('jdtls').extendedClientCapabilities
+  default_capabilities.resolveAdditionalTextEditsSupport = true
 
   jdtls_config.init_options = {
     bundles = bundles,
     extendedClientCapabilities = default_capabilities,
-  },
+  }
 
   -- This starts a new client & server,
   -- or attaches to an existing client & server depending on the `root_dir`.
