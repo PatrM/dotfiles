@@ -27,6 +27,7 @@ collection of various configs for e.g. vim/vs code etc.
 
 
 ## Java Debugging in Neovim 
+* `git clone git@github.com:eclipse/eclipse.jdt.ls.git ~/dev/tools/eclipse.jdt.ls && cd ~/dev/tools/eclipse.jdt.ls && ./mvnw clean verify -DskipTests`
 * `git clone git@github.com:microsoft/java-debug.git ~/dev/tools/java-debug && cd ~/dev/tools/java-debug && ./mvnw clean install`
   * might have to `@Ignore` some tests in case of failures. Due to OS/java version differences there could be issues with e.g. numeric formatter
 * `git clone git@github.com:microsoft/vscode-java-test.git ~/dev/tools/vscode-java-test && cd ~/dev/tools/vscode-java-test && npm install && npm run build-plugin`
