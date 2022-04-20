@@ -23,7 +23,8 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
 
   -- Styling
-  use 'morhetz/gruvbox'
+  -- use 'morhetz/gruvbox'
+  use ({ "catppuccin/nvim", as = "catppuccin" })
   use 'kyazdani42/nvim-web-devicons'
   use {
       'kyazdani42/nvim-tree.lua',

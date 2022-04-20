@@ -14,4 +14,4 @@ vim.opt.mouse = "a"
 vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
-vim.cmd "colorscheme gruvbox"
+vim.cmd "colorscheme catppuccin"
