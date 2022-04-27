@@ -35,7 +35,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'angularls', 'tsserver', 'dockerls' }
+local servers = { 'pyright', 'tsserver', 'dockerls' }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 config = {
     capabilities = capabilities,
@@ -50,7 +50,35 @@ for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup(config)
 end
 
+-- Typescript LSP
+require'lspconfig'.tsserver.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
+    },
+    file_types = { "javascript", "javascriptreact", "javascript.jsx", "typescript", 'html', "typescriptreact", "typescript.tsx" },
+}
 
+-- Angular LSP
+local global_node_modules = '/usr/local/lib/node_modules'
+local cmd = {"ngserver", "--stdio", "--tsProbeLocations", global_node_modules , "--ngProbeLocations", global_node_modules}
+require'lspconfig'.angularls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
+    },
+    cmd = cmd,
+    on_new_config = function(new_config, new_root_dir)
+      new_config.cmd = cmd
+    end,
+}
+
+
+-- Lua LSP
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
