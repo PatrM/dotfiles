@@ -34,5 +34,11 @@ cmp.setup {
   experimental = {
     native_menu = false,
     ghost_text = true
-  }
+  },
 }
+
+cmp.setup.cmdline('/', {
+  view = {
+    entries = {name = 'wildmenu', separator = '|' }
+  },
+})
