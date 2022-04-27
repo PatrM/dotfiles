@@ -43,4 +43,8 @@ M.dbui = {
   },
 }
 
+M.notes = {
+  journal_path = '~/dev/notes/journal/'
+}
+
 return M

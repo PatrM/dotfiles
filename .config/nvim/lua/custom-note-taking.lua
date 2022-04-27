@@ -1,8 +1,8 @@
+local local_config = require('local-config')
 
-
-  local config = {
-    journal_dir = '~/dev/notes/journal/'
-  }
+local config = {
+  journal_dir = local_config.notes.journal_path,
+}
 
 
 function journal_today()
