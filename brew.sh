@@ -19,3 +19,4 @@ brew install --cask brave-browser
 brew install --cask iterm2
 brew install --cask vlc
 brew install --cask font-hack-nerd-font
+brew install --cask amethyst
