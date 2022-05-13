@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 vim.opt.expandtab = true
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 vim.opt.shiftwidth = 2
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -14,4 +14,5 @@ vim.opt.mouse = "a"
 vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
+vim.opt.foldlevel = 99
 vim.cmd "colorscheme catppuccin"

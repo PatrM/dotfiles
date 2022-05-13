@@ -1,4 +1,5 @@
 
+local local_config = require('local-config')
 local opts = {
   noremap = true,
   silent = true
@@ -67,7 +68,7 @@ require'lspconfig'.tsserver.setup {
 }
 
 -- Angular LSP
-local global_node_modules = '/usr/local/lib/node_modules'
+local global_node_modules = local_config.lsp.global_node_modules
 local cmd = {"ngserver", "--stdio", "--tsProbeLocations", global_node_modules , "--ngProbeLocations", global_node_modules}
 require'lspconfig'.angularls.setup {
     capabilities = capabilities,

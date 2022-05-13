@@ -47,4 +47,7 @@ M.notes = {
   journal_path = '~/dev/notes/journal/'
 }
 
+M.lsp = {
+  global_node_modules = '/Users/patrick/.nvm/versions/node/v16.14.2/lib'
+}
 return M
