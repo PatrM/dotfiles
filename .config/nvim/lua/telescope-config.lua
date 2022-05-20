@@ -66,7 +66,7 @@ all_project_files = function()
   local find_files_opts = {
     previewer = false,
     git_command = {'git', 'ls-files', 'cached'}
-  } 
+  }
   local ok = pcall(require'telescope.builtin'.git_files, opts)
   if not ok then require'telescope.builtin'.find_files(find_files_opts) end
 end
@@ -79,3 +79,4 @@ vim.keymap.set('n', 'gr', require'telescope.builtin'.lsp_references, {silent = t
 vim.keymap.set('n', '<leader>fw', require'telescope.builtin'.grep_string, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>fa', require'telescope.builtin'.live_grep, {silent = true, noremap = true})
 vim.keymap.set("n", "<leader>fh", require'telescope.builtin'.help_tags, {noremap = true})
+vim.keymap.set("n", "<leader>fg", require'telescope.builtin'.git_status, {noremap = true})

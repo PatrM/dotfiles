@@ -41,7 +41,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver', 'dockerls' }
+local servers = { 'pyright', 'tsserver', 'dockerls', 'cssls' }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 config = {
     capabilities = capabilities,
@@ -67,9 +67,9 @@ require'lspconfig'.tsserver.setup {
     file_types = { "javascript", "javascriptreact", "javascript.jsx", "typescript", 'html', "typescriptreact", "typescript.tsx" },
 }
 
--- Angular LSP
+-- Angular LSP. the --viewEngine parameter is only needed when working with pre-Ivy projects
 local global_node_modules = local_config.lsp.global_node_modules
-local cmd = {"ngserver", "--stdio", "--tsProbeLocations", global_node_modules , "--ngProbeLocations", global_node_modules}
+local cmd = {"ngserver", "--stdio", "--tsProbeLocations", global_node_modules , "--ngProbeLocations", global_node_modules, "--viewEngine"}
 require'lspconfig'.angularls.setup {
     capabilities = capabilities,
     on_attach = on_attach,

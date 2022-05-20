@@ -11,4 +11,4 @@ if has('ide')
   nnoremap <leader>fw :action SelectInProjectView<cr>
   nnoremap <leader>rr :action RenameElement<cr>
   nnoremap gr :action ShowUsages<cr>
-endifn
+endif

@@ -22,7 +22,7 @@ function M.setup(config)
   jdtls_config.on_attach = function (client, bufnr)
     require('jdtls.setup').add_commands()
     require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-    -- require('jdtls.dap').setup_dap_main_class_configs()
+    require('jdtls.dap').setup_dap_main_class_configs()
     config.on_attach(client, bufnr)
   end
 
@@ -33,6 +33,7 @@ function M.setup(config)
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
+   -- '-javaagent:' .. local_config.jdtls.lombok_dir
     '-Xms1g', -- can be increased if more is needed
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
