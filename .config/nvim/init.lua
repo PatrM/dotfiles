@@ -21,6 +21,21 @@ require('packer').startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use {'nvim-telescope/telescope-ui-select.nvim' }
   use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  use 'p00f/nvim-ts-rainbow'
+
+  -- TODO highlighting
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
   -- Styling
   -- use 'morhetz/gruvbox'
@@ -67,6 +82,9 @@ require('packer').startup(function(use)
   -- SQL
   use 'tpope/vim-dadbod'
   use 'kristijanhusak/vim-dadbod-ui'
+
+  -- auto pairs
+  use 'jiangmiao/auto-pairs'
 
 end)
 
