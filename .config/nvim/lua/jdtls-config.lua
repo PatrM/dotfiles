@@ -22,7 +22,7 @@ function M.setup(config)
   jdtls_config.on_attach = function (client, bufnr)
     require('jdtls.setup').add_commands()
     require('jdtls').setup_dap({ hotcodereplace = 'auto' })
- --   require('jdtls.dap').setup_dap_main_class_configs()
+    require('jdtls.dap').setup_dap_main_class_configs()
     config.on_attach(client, bufnr)
   end
 

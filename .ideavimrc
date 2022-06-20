@@ -1,4 +1,4 @@
-set relativeumber
+set relativenumber
 set number
 set ignorecase
 set smartcase
