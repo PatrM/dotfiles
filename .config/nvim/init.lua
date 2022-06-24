@@ -24,19 +24,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'p00f/nvim-ts-rainbow'
 
-  -- TODO highlighting
-  use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
-  }
-
   -- Styling
   -- use 'morhetz/gruvbox'
   use ({ "catppuccin/nvim", as = "catppuccin" })
@@ -48,7 +35,8 @@ require('packer').startup(function(use)
       },
       config = function() require'nvim-tree'.setup {} end
   }
-
+  -- copy/paste images from clipboard
+  use 'ekickx/clipboard-image.nvim'
   -- Dashboard
   use 'mhinz/vim-startify'
 
@@ -77,8 +65,6 @@ require('packer').startup(function(use)
   -- Symbols outline
   use 'simrat39/symbols-outline.nvim'
 
-  -- indent lines
-  use 'Yggdroot/indentLine'
   -- SQL
   use 'tpope/vim-dadbod'
   use 'kristijanhusak/vim-dadbod-ui'
