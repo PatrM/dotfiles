@@ -22,6 +22,7 @@ collection of various configs for e.g. vim/vs code etc.
 * Execute `symlink_setup.sh` in root of repository
 * Make a copy of [local-config.lua.example](.config/nvim/lua/local-config.lua.example), strip off the `.example` and enter proper values for local configuration
 * Install language servers for neovim `npm install -g @angular/language-server pyright typescript-language-server typescript dockerfile-language-server-nodejs @angular/language-service vscode-langservers-extracted @ansible/ansible-language-server`
+    * TODO: moving this to ansible
 * [Precompiled binary of sumneko lua LSP](https://github.com/sumneko/lua-language-server/wiki/Build-and-Run)
 * Misc tools provided via npm: `npm install -g rimraf`
 
