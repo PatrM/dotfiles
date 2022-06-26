@@ -15,4 +15,9 @@ vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldlevel = 99
-vim.cmd "colorscheme catppuccin"
+
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_transparent = true
+vim.g.tokyonight_transparent_sidebar = true
+
+vim.cmd "colorscheme tokyonight"
