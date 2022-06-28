@@ -8,6 +8,10 @@ if not dap_ui_status_ok then
 	return
 end
 
+-- the python below requires to contian module debugpy
+require('dap-python').setup(nil, {})
+local dap = require('dap')
+
 dapui.setup {
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
@@ -56,7 +60,17 @@ vim.cmd [[
   command! -buffer DebuggerToggle lua require('dapui').toggle()
   command! -buffer DebuggerEval lua require('dapui').eval(nil)
   command! -buffer DebuggerBreakpointToggle lua require('dap').toggle_breakpoint()
+  command! -buffer DebuggerContinue lua require('dap').continue()
 ]]
+
+
+local opts = {
+  noremap = true,
+  silent = true
+}
+vim.keymap.set('n', '<leader>dc', dap.continue, opts)
+vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, opts)
+vim.keymap.set('n', '<leader>de', require('dapui').eval, opts)
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()

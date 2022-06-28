@@ -41,7 +41,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver', 'dockerls', 'cssls', 'ansiblels', 'gopls', 'gradle_ls' }
+local servers = { 'pyright', 'tsserver', 'dockerls', 'cssls', 'ansiblels', 'gopls', 'gradle_ls', 'jsonls' }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 config = {
     capabilities = capabilities,

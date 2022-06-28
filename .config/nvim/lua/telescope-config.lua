@@ -48,6 +48,7 @@ require('telescope').setup {
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 require("telescope").load_extension("ui-select")
+require("telescope").load_extension("live_grep_args")
 
 -- TEMPORARY function to use find_files as fallback, should be in separate file (telescope_config.lua)
 project_files = function()
@@ -58,18 +59,6 @@ project_files = function()
   local ok = pcall(require'telescope.builtin'.git_files, opts)
   if not ok then require'telescope.builtin'.find_files(opts) end
 end
-all_project_files = function()
-  local find_files_opts = {
-    previewer = false,
-    no_ignore = true
-  } 
-  local find_files_opts = {
-    previewer = false,
-    git_command = {'git', 'ls-files', 'cached'}
-  }
-  local ok = pcall(require'telescope.builtin'.git_files, opts)
-  if not ok then require'telescope.builtin'.find_files(find_files_opts) end
-end
 
 -- Telescope keymaps
 vim.keymap.set('n', '<leader>ff', project_files, {silent = true, noremap = true})
@@ -78,5 +67,6 @@ vim.keymap.set('n', '<leader>bb', require'telescope.builtin'.buffers, {silent = 
 vim.keymap.set('n', 'gr', require'telescope.builtin'.lsp_references, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>fw', require'telescope.builtin'.grep_string, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>fa', require'telescope.builtin'.live_grep, {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>fA', require("telescope").extensions.live_grep_args.live_grep_args, {silent = true, noremap = true})
 vim.keymap.set("n", "<leader>fh", require'telescope.builtin'.help_tags, {noremap = true})
 vim.keymap.set("n", "<leader>fg", require'telescope.builtin'.git_status, {noremap = true})

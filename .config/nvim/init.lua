@@ -16,13 +16,20 @@ require('packer').startup(function(use)
 
     use 'wbthomason/packer.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
-    use { 'nvim-telescope/telescope-ui-select.nvim' }
     use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
     use 'p00f/nvim-ts-rainbow'
+
+    -- Telescope
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            { "nvim-telescope/telescope-live-grep-args.nvim" }
+        }
+    }
 
     -- Styling
     use 'morhetz/gruvbox'
@@ -48,6 +55,7 @@ require('packer').startup(function(use)
     -- LSP & CMP
     use 'neovim/nvim-lspconfig'
     use 'mfussenegger/nvim-jdtls'
+    use 'mfussenegger/nvim-dap-python'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-path'
