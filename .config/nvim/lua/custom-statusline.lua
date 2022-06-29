@@ -151,3 +151,5 @@ api.nvim_exec([[
   au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
   augroup END
 ]], false)
+
+vim.opt.laststatus=3
