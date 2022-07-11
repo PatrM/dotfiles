@@ -33,7 +33,7 @@ function M.setup(config)
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
-   -- '-javaagent:' .. local_config.jdtls.lombok_dir
+    '-javaagent:' .. '/Users/patrick/dev/tools/lombok.jar',
     '-Xms1g', -- can be increased if more is needed
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
@@ -53,6 +53,7 @@ function M.setup(config)
       },
       configuration = {
         updateBuildConfiguration = "interactive",
+        runtimes = local_config.jdtls.runtimes,
       },
       maven = {
         downloadSources = true,

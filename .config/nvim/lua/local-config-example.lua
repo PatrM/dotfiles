@@ -28,6 +28,20 @@ M.jdtls = {
   referenced_libraries = {
     -- strings to references libs (like e.g. Lombok) can be added here
   },
+  runtimes = {
+      {
+          name = 'JavaSE-1.8',
+          path = ''
+      },
+      {
+        name = "JavaSE-11",
+        path = "/Users/patrick/.sdkman/candidates/java/11.0.15.9.1-amzn/",
+      },
+      {
+        name = "JavaSE-17",
+        path = "/usr/lib/jvm/java-17-openjdk/",
+      },
+  },
   java_command = "java", -- or direct java path if java isn't in $PATH
 }
 
