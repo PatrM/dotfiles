@@ -111,8 +111,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
 source ~/.aliases
 source ~/.aliases-local || true
+
+# custom functions
+gch() {
+    git checkout "$(git branch --all  | fzf | tr -d '[:space:]')"
+}
 
 
 # autoload -U promptinit; promptinit

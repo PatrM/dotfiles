@@ -13,6 +13,7 @@ if has('ide')
   nnoremap <leader>rr :action RenameElement<cr>
   nnoremap <leader>fa :action FindInPath<cr>
   nnoremap <leader>bb :action RecentFiles<cr>
+  nnoremap <leader>ca :action ShowIntentionActions<cr>
 
   nnoremap ]d :action GotoNextError<cr>
   nnoremap [d :action GotoPreviousError<cr>
