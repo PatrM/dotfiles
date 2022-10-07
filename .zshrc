@@ -121,7 +121,7 @@ gch() {
 }
 
 cdd() {
-    cd "$(find . -type d -print | fzf | tr -d '[:space:]')"
+    cd "$(find ~/dev -type d -print | fzf | tr -d '[:space:]')"
 }
 
 
