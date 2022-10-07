@@ -120,6 +120,10 @@ gch() {
     git checkout "$(git branch --all  | fzf | tr -d '[:space:]')"
 }
 
+cdd() {
+    cd "$(find . -type d -print | fzf | tr -d '[:space:]')"
+}
+
 
 # autoload -U promptinit; promptinit
 
