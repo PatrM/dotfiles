@@ -51,6 +51,7 @@ require('packer').startup(function(use)
     -- Git related
     use 'tpope/vim-fugitive'
     use 'lewis6991/gitsigns.nvim'
+    use 'tpope/vim-rhubarb'
 
     -- LSP & CMP
     use 'neovim/nvim-lspconfig'
