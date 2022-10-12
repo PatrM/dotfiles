@@ -72,6 +72,10 @@ require('packer').startup(function(use)
 
     use 'j-hui/fidget.nvim'
 
+
+    -- VimWiki
+    use 'vimwiki/vimwiki'
+
     -- Symbols outline
     use 'simrat39/symbols-outline.nvim'
 
