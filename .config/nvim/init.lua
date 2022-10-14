@@ -52,6 +52,7 @@ require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
     use 'lewis6991/gitsigns.nvim'
     use 'tpope/vim-rhubarb'
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     -- LSP & CMP
     use 'neovim/nvim-lspconfig'
