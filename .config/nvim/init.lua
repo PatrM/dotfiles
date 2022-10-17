@@ -114,8 +114,10 @@ require 'nvim-tree'.setup {
     view = {
         width = 30,
     },
-    open_file = {
-        quit_on_open = true,
+    actions = {
+        open_file = {
+            quit_on_open = true,
+        },
     },
 }
 vim.g.nvim_tree_git_highlights = 1
