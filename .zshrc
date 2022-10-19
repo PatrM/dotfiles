@@ -116,6 +116,10 @@ source ~/.aliases
 source ~/.aliases-local || true
 
 # custom functions
+git_qp() {
+  git pull && git add . && git commit -m "$1" && git push
+}
+
 gch() {
     git checkout "$(git branch --all  | fzf | tr -d '[:space:]')"
 }
