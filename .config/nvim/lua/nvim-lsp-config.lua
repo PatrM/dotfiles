@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
   vim.keymap.set('n', '<space>rr', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', '<space>ll', vim.lsp.buf.formatting, opts)
+  vim.keymap.set('n', '<space>ll', vim.lsp.buf.format, opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -83,6 +83,8 @@ require'lspconfig'.angularls.setup {
     end,
 }
 
+-- Rust LSP
+require'lspconfig'.rust_analyzer.setup{}
 
 -- Lua LSP
 local runtime_path = vim.split(package.path, ';')
