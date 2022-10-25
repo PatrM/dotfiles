@@ -16,7 +16,7 @@ function M.setup(config)
   -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
   local jdtls_config = {}
 
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
   jdtls_config.capabilities =  capabilities
 
   jdtls_config.on_attach = function (client, bufnr)
