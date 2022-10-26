@@ -16,13 +16,26 @@ vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldlevel = 99
 
--- vim.g.tokyonight_style = "night"
--- vim.g.tokyonight_transparent = true
--- vim.g.tokyonight_transparent_sidebar = true
+---- color schemes ----
+-- gruvbox settings
+vim.g.gruvbox_contrast_dark = "hard"
+vim.g.gruvbox_italicize_comments = 1
+vim.g.gruvbox_italicize_strings = 1
 
+-- tokyonight settings
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_transparent = true
+vim.g.tokyonight_transparent_sidebar = true
 
+-- catppuccin settings
 vim.g.catppuccin_flavour = "macchiato"
 require("catppuccin").setup()
-vim.cmd "colorscheme catppuccin"
 
+
+-- generic colorscheme adaptions
 vim.cmd "highlight VertSplit guifg=cyan"
+
+
+-- the actual colorscheme
+vim.cmd "colorscheme gruvbox"
+---- color schemes ----
