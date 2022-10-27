@@ -12,6 +12,11 @@ vim.cmd [[
     autocmd BufWritePost init.lua PackerCompile
   augroup end
 ]]
+
+-- disabling netrw as early as possible for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require('packer').startup(function(use)
 
     use 'wbthomason/packer.nvim'
@@ -41,7 +46,14 @@ require('packer').startup(function(use)
         requires = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icon
         },
-        config = function() require 'nvim-tree'.setup {} end
+        config = function() require 'nvim-tree'.setup({
+            filters = {
+                dotfiles = false,
+            },
+            renderer = {
+                group_empty = true
+            }
+        }) end
     }
     -- copy/paste images from clipboard
     use 'ekickx/clipboard-image.nvim'
