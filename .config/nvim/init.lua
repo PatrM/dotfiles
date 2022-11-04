@@ -70,23 +70,24 @@ require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'mfussenegger/nvim-jdtls'
     use 'mfussenegger/nvim-dap-python'
-    use {
-      'hrsh7th/nvim-cmp',
-      config = function ()
-        require'cmp'.setup {
-        snippet = {
-          expand = function(args)
-            require'luasnip'.lsp_expand(args.body)
-          end
-        },
+    use 'hrsh7th/nvim-cmp'
+    -- use {
+    --   'hrsh7th/nvim-cmp',
+    --   config = function ()
+    --     require'cmp'.setup {
+    --     snippet = {
+    --       expand = function(args)
+    --         require'luasnip'.lsp_expand(args.body)
+    --       end
+    --     },
 
-        sources = {
-          { name = 'luasnip' },
-          -- more sources
-        },
-      }
-      end
-    }
+    --     sources = {
+    --       { name = 'luasnip' },
+    --       -- more sources
+    --     },
+    --   }
+    --   end
+    -- }
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-buffer'
@@ -112,9 +113,6 @@ require('packer').startup(function(use)
     use 'tpope/vim-dadbod'
     use 'kristijanhusak/vim-dadbod-ui'
 
-    -- auto pairs
-    use 'jiangmiao/auto-pairs'
-
 end)
 
 
@@ -131,7 +129,7 @@ require('telescope-config')
 require('dap-config')
 require('custom-statusline')
 require('custom-note-taking')
-require('lua-snip-config')
+-- require('lua-snip-config')
 --------------------------- nvim-tree
 require 'nvim-tree'.setup {
     open_on_setup = false,
