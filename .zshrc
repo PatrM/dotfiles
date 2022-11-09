@@ -124,6 +124,10 @@ gch() {
     git checkout "$(git branch --all  | fzf | tr -d '[:space:]')"
 }
 
+gstash() {
+    git stash -m "$1"
+}
+
 cdd() {
     cd "$(find ~/dev -type d -print | fzf | tr -d '[:space:]')"
 }
