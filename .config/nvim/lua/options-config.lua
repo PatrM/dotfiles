@@ -16,7 +16,7 @@ vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.foldlevel = 99
 
----- color schemes ----
+--#region color schemes ----
 -- gruvbox settings
 vim.g.gruvbox_contrast_dark = "hard"
 vim.g.gruvbox_italicize_comments = 1
@@ -32,10 +32,14 @@ vim.g.catppuccin_flavour = "macchiato"
 require("catppuccin").setup()
 
 
--- generic colorscheme adaptions
-vim.cmd "highlight VertSplit guifg=cyan"
 
 
--- the actual colorscheme
+--#region the actual colorscheme
 vim.cmd "colorscheme gruvbox"
----- color schemes ----
+--#endregion
+--#endregion color schemes ----
+
+--#region generic colorscheme adaptions
+vim.cmd "highlight Normal guibg=NONE"
+vim.cmd "highlight VertSplit guifg=cyan"
+--#endregion
