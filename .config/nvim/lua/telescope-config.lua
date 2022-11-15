@@ -1,6 +1,10 @@
+local previewers = require("telescope.previewers")
 require('telescope').setup {
   -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
   defaults = {
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
     winblend = 0,
     path_display = {'smart'},
     border = {},
@@ -50,12 +54,11 @@ require('telescope').load_extension('fzf')
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("live_grep_args")
 
--- TEMPORARY function to use find_files as fallback, should be in separate file (telescope_config.lua)
-project_files = function()
+local project_files = function()
   local opts = {
-    previewer = false,
- --   path_display = {'smart'},
-  } -- define here if you want to define something
+    -- previewer = false,
+    --   path_display = {'smart'},
+  }
   local ok = pcall(require'telescope.builtin'.git_files, opts)
   if not ok then require'telescope.builtin'.find_files(opts) end
 end
