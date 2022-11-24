@@ -83,6 +83,11 @@ require'lspconfig'.angularls.setup {
     end,
 }
 
+-- YAML (with kubernetes scheme)
+require('lspconfig').yamlls.setup{
+    settings = { yaml = { schemas = { kubernetes =  'https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.1-standalone/all.json'}}}
+}
+
 -- Rust LSP
 require'lspconfig'.rust_analyzer.setup{}
 

@@ -185,6 +185,14 @@ vim.keymap.set('n', '<leader>dd', '"_dd', { noremap = true })
 vim.keymap.set('v', '<leader>dv', '"_d', { noremap = true })
 vim.keymap.set('n', '<leader>tf', '<cmd>SymbolsOutline<cr>', { noremap = true })
 
+-- moving lines by alt + j/k
+vim.keymap.set('n', '<C-j>', ':m .+1<CR>', { noremap = true })
+vim.keymap.set('n', '<C-k>', ':m .-2<CR>', { noremap = true })
+vim.keymap.set('i', '<C-k>', ':m .-2<CR>', { noremap = true })
+vim.keymap.set('i', '<C-j>', ':m .+1<CR>', { noremap = true })
+vim.keymap.set('v', '<C-j>', ':m .+1<CR>', { noremap = true })
+vim.keymap.set('v', '<C-k>', ':m .-2<CR>', { noremap = true })
+
 
 --------------------------- buffer movement
 vim.keymap.set('n', '<leader>b.', '<cmd>bnext<cr>', { noremap = true })
