@@ -35,7 +35,7 @@ require("catppuccin").setup()
 
 
 --#region the actual colorscheme
-vim.cmd "colorscheme gruvbox"
+vim.cmd "colorscheme catppuccin"
 --#endregion
 --#endregion color schemes ----
 
