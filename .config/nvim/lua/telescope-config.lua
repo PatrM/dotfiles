@@ -54,17 +54,9 @@ require('telescope').load_extension('fzf')
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("live_grep_args")
 
-local project_files = function()
-  local opts = {
-    -- previewer = false,
-    --   path_display = {'smart'},
-  }
-  local ok = pcall(require'telescope.builtin'.git_files, opts)
-  if not ok then require'telescope.builtin'.find_files(opts) end
-end
-
 -- Telescope keymaps
-vim.keymap.set('n', '<leader>ff', project_files, {silent = true, noremap = true})
+vim.keymap.set('n', '<C-p>', require'telescope.builtin'.git_files, {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>ff', require'telescope.builtin'.find_files, {silent = true, noremap = true})
 --vim.keymap.set('n', '<leader><Shift>F', all_project_files, {silent = true, noremap = true})
 vim.keymap.set('n', '<leader>bb', require'telescope.builtin'.buffers, {silent = true, noremap = true})
 vim.keymap.set('n', 'gr', require'telescope.builtin'.lsp_references, {silent = true, noremap = true})

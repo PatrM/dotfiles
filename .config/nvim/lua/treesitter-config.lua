@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {'java', 'javascript', 'typescript', 'markdown', 'html', 'css', 'python', 'kotlin', 'lua', 'c_sharp', 'go', 'latex', 'json', 'jsdoc', 'tsx', 'vue', 'yaml', 'dockerfile', 'graphql', 'rust'},
+  ensure_installed = {'java', 'javascript', 'typescript', 'markdown', 'markdown_inline', 'html', 'css', 'python', 'kotlin', 'lua', 'c_sharp', 'go', 'latex', 'json', 'jsdoc', 'tsx', 'vue', 'yaml', 'dockerfile', 'graphql', 'rust'},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,

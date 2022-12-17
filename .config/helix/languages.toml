@@ -1,0 +1,4 @@
+[[language]]
+name = "java"
+language-server = { command = "jdtls", args = ["-data", "/home/my_user/.cache/jdtls/my_project"] }
+
