@@ -25,7 +25,16 @@ require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
     use 'p00f/nvim-ts-rainbow'
-
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
     -- Telescope
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { 'nvim-telescope/telescope-ui-select.nvim' }
@@ -71,6 +80,9 @@ require('packer').startup(function(use)
     use 'mfussenegger/nvim-jdtls'
     use 'mfussenegger/nvim-dap-python'
     use 'hrsh7th/nvim-cmp'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'jayp0521/mason-nvim-dap.nvim'
     -- use {
     --   'hrsh7th/nvim-cmp',
     --   config = function ()
@@ -122,11 +134,11 @@ vim.g.mapleader = ' '
 -- https://www.notonlycode.org/neovim-lua-config/
 require('options-config')
 require('treesitter-config')
-require('nvim-lsp-config')
 require('nvim-cmp-config')
 require('signature-config')
 require('telescope-config')
-require('dap-config')
+-- require('dap-config')
+require('mason-config')
 require('custom-statusline')
 require('custom-note-taking')
 -- require('lua-snip-config')
