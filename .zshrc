@@ -120,6 +120,26 @@ git_qp() {
   git pull && git add . && git commit -m "$1" && git push
 }
 
+git_ezsquash() {
+    # no clue how good of an idea that is honestly
+    CURRENT="$(git branch --show-current)"
+    echo "> Current branch: $CURRENT"
+    COPY="$CURRENT-copy"
+    WORKING_BRANCH='master'
+
+    echo "> Renaming branch to $COPY."
+    git branch -m "$COPY"
+    git checkout "$WORKING_BRANCH"
+    git pull
+    git checkout -b "$CURRENT"
+
+    echo "> Squashing $COPY -> $CURRENT"
+    git merge --squash "$COPY"
+
+    echo '> Done. committing.'
+    git commit
+}
+
 gch() {
     git checkout "$(git branch --all  | fzf | tr -d '[:space:]')"
 }
