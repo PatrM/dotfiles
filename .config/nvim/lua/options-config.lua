@@ -35,7 +35,7 @@ require("catppuccin").setup()
 
 
 --#region the actual colorscheme
-vim.cmd "colorscheme catppuccin"
+vim.cmd "colorscheme rose-pine"
 --#endregion
 --#endregion color schemes ----
 

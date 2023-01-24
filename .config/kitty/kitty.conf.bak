@@ -1012,7 +1012,7 @@ tab_title_template "{index}:{title}"
 #: Color scheme {{{
 
 # foreground #dddddd
-# background #1d2021
+background #1d2021
 
 #: The foreground and background colors.
 
@@ -2264,9 +2264,3 @@ map alt+right send_text all \x1b\x66
 #: }}}
 
 #: }}}
-
-
-# BEGIN_KITTY_THEME
-# Rosé Pine
-include current-theme.conf
-# END_KITTY_THEME

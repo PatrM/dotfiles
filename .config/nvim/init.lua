@@ -48,6 +48,13 @@ require('packer').startup(function(use)
     -- Styling
     use 'morhetz/gruvbox'
     use({ "catppuccin/nvim", as = "catppuccin" })
+    use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+        config = function()
+            require("rose-pine").setup()
+        end
+    })
     use 'folke/tokyonight.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use {
