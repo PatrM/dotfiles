@@ -29,13 +29,16 @@ vim.g.tokyonight_transparent_sidebar = true
 
 -- catppuccin settings
 vim.g.catppuccin_flavour = "macchiato"
-require("catppuccin").setup()
-
-
-
+require("catppuccin").setup({
+    transparent_background = true
+})
+-- rose-pine settings
+require('rose-pine').setup({
+    disable_background = true
+})
 
 --#region the actual colorscheme
-vim.cmd "colorscheme rose-pine"
+vim.cmd "colorscheme catppuccin"
 --#endregion
 --#endregion color schemes ----
 
