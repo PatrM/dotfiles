@@ -13,6 +13,9 @@ function M.setup(config)
     command! -buffer JdtTestClass lua require('jdtls').test_class()
   ]]
 
+  local jdtls_path = vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls")
+  local mac_os_path = '/config_mac'
+
   -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
   local jdtls_config = {}
 
@@ -34,12 +37,12 @@ function M.setup(config)
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
     '-javaagent:' .. '/Users/patrick/dev/tools/lombok.jar',
-    '-Xms1g', -- can be increased if more is needed
+    '-Xms1G', -- can be increased if more is needed
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', vim.fn.glob(local_config.jdtls.jdtls_dir_launcher),
-    '-configuration', local_config.jdtls.jdtls_system_config,
+    '-jar', vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+    '-configuration', jdtls_path .. mac_os_path
     '-data', local_config.jdtls.work_dir
   }
   jdtls_config.root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'})
