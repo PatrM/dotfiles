@@ -1,4 +1,3 @@
-
 local local_config = require('local-config')
 local opts = {
   noremap = true,

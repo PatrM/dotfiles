@@ -8,4 +8,3 @@ require('mason-lspconfig').setup({
     },
     automatic_installation = true
 })
-require('nvim-lsp-config')
