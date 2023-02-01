@@ -36,7 +36,7 @@ bold_italic_font JuliaMono Nerd Font BoldItalic
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 12.0
+font_size 14.0
 
 #: Font size (in pts)
 
@@ -2267,6 +2267,6 @@ map alt+right send_text all \x1b\x66
 
 
 # BEGIN_KITTY_THEME
-# duckbones
+# 1984 Orwellian
 include current-theme.conf
 # END_KITTY_THEME
