@@ -4,7 +4,7 @@ lsp.preset('recommended')
 lsp.nvim_workspace()
 
 -- Lua LSP
-lsp.configure('sumneko_lua', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {

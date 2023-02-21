@@ -111,6 +111,12 @@ require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'}, -- Optional
         }
     }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
     use 'jayp0521/mason-nvim-dap.nvim'
     -- use {
     --   'hrsh7th/nvim-cmp',
@@ -205,6 +211,13 @@ require 'nvim-web-devicons'.setup {
 
 --------------------------- gitsigns
 require('gitsigns').setup()
+
+
+--------------------------- markdown-preview
+vim.cmd([[
+let g:mkdp_preview_options = {'maid': { 'theme' : 'dark' }}
+]])
+
 
 --------------------------- status line
 
