@@ -248,6 +248,11 @@ vim.keymap.set('i', '<C-j>', '<Esc>:m .+1<CR>==gi', { noremap = true })
 vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv", { noremap = true })
 vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv", { noremap = true })
 
+-- Enclosing current word with quote
+vim.keymap.set('n', "<Leader>q'", "ciw''<Esc>P", {noremap = true })
+vim.keymap.set('n', '<Leader>q"', 'ciw""<Esc>P', {noremap = true })
+vim.keymap.set('n', '<Leader>q`', 'ciw``<Esc>P', {noremap = true })
+
 
 --------------------------- buffer movement
 vim.keymap.set('n', '<leader>b.', '<cmd>bnext<cr>', { noremap = true })
