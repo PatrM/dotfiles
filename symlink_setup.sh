@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+
 # create missing directories. manually for now
 mkdir -p "$HOME/.config/nvim/lua"
 
