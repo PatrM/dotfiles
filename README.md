@@ -1,6 +1,6 @@
 # Dotfiles
 
-**TODO move steps below into shell script or ansible **
+**TODO move steps below into shell script or ansible. **
 
 ## First time requirements / Setup
 
