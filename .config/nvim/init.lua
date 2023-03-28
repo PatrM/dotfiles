@@ -1,4 +1,4 @@
--- clone packer if it doesn't exist yet
+-- clone packer if it doesn't exist yetinit
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local local_config = require('local-config')
 
@@ -115,7 +115,7 @@ require('packer').startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
     use 'jayp0521/mason-nvim-dap.nvim'
     -- use {
@@ -180,12 +180,7 @@ require('custom-note-taking')
 -- require('lua-snip-config')
 --------------------------- nvim-tree
 require 'nvim-tree'.setup {
-    open_on_setup = false,
-    open_on_setup_file = false,
     auto_reload_on_write = true,
-    ignore_ft_on_setup = {
-        "startify",
-    },
     view = {
         width = 30,
     },
