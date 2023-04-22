@@ -23,9 +23,12 @@ cmp.setup {
       select = true,
     },
   },
+  window = {
+    documentation = cmp.config.window.bordered()
+  },
   sources = {
     { name = 'gh_issues' },
-    { name = 'nvim_lsp' },
+    { name = 'nvim_lsp', keyword_length = 1 },
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'nvim_lua' },
