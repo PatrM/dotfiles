@@ -148,9 +148,6 @@ require('packer').startup(function(use)
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
 
-    use 'j-hui/fidget.nvim'
-
-
     -- VimWiki
     use 'vimwiki/vimwiki'
 
@@ -195,8 +192,6 @@ vim.g.nvim_tree_git_highlights = 1
 vim.keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>to', '<cmd>NvimTreeFindFile<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>tr', '<cmd>NvimTreeRefresh<cr>', { noremap = true })
-
-require "fidget".setup {}
 
 --------------------------- Dashboard
 vim.g.startify_change_to_vcs_root = 1
