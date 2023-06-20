@@ -152,6 +152,14 @@ cdd() {
     cd "$(find ~/dev -type d -print | fzf | tr -d '[:space:]')"
 }
 
+work() {
+    timer 30m -n Work && terminal-notifier -message 'Pomodoro' -title 'Work Timer is up! Take a Break 😊' -appIcon '~/Pictures/pumpkin.png' -sound Crystal
+}
+
+rest() {
+    timer 10m -n Rest && terminal-notifier -message 'Pomodoro' -title 'Break is over! Get back to work 😬' -appIcon '~/Pictures/pumpkin.png' -sound Crystal
+}
+
 
 # autoload -U promptinit; promptinit
 
