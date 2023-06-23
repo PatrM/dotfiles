@@ -7,6 +7,6 @@ end
 bindToCtrlLaunchOrFocus("1", "kitty")
 bindToCtrlLaunchOrFocus("2", "IntelliJ IDEA")
 -- bindToCtrlLaunchOrFocus("3", "")
-bindToCtrlLaunchOrFocus("4", "Brave Browser")
+bindToCtrlLaunchOrFocus("4", "Microsoft Edge")
 bindToCtrlLaunchOrFocus("5", "Slack")
 bindToCtrlLaunchOrFocus("6", "Spotify")
