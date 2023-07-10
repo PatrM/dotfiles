@@ -84,7 +84,6 @@ require('packer').startup(function(use)
 
     -- LSP & CMP
     use 'neovim/nvim-lspconfig'
-    use 'github/copilot.vim'
     use 'mfussenegger/nvim-jdtls'
     use 'mfussenegger/nvim-dap-python'
     use 'hrsh7th/nvim-cmp'
