@@ -21,6 +21,7 @@ require('packer').startup(function(use)
 
     use 'wbthomason/packer.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use 'MDeiml/tree-sitter-markdown'
     use 'nvim-lua/plenary.nvim'
     use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
@@ -75,6 +76,27 @@ require('packer').startup(function(use)
     use 'ekickx/clipboard-image.nvim'
     -- Dashboard
     use 'mhinz/vim-startify'
+
+    use({
+        "epwalsh/obsidian.nvim",
+        config = function()
+            require("obsidian").setup({
+                dir = "~/dev/personal/abathur",
+                daily_notes = {
+                    folder = "journal",
+                    date_format = "%Y-%m-%d"
+                },
+                completion = {
+                    nvim_cmp = true,
+                    min_chars = 2
+                },
+                follow_url_func = function(url)
+                    vim.fn.jobstart({ "open", url }) -- Mac OS
+                end,
+                finder = "telescope.nvim"
+            })
+        end,
+    })
 
     -- Git related
     use 'tpope/vim-fugitive'
@@ -146,9 +168,6 @@ require('packer').startup(function(use)
     use 'microsoft/vscode-java-test'
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
-
-    -- VimWiki
-    use 'vimwiki/vimwiki'
 
     -- Symbols outline
     use 'simrat39/symbols-outline.nvim'
