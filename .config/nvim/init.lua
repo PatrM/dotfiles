@@ -75,8 +75,6 @@ require('packer').startup(function(use)
             }
         }) end
     }
-    -- copy/paste images from clipboard
-    use 'ekickx/clipboard-image.nvim'
     -- Dashboard
     use 'mhinz/vim-startify'
 
