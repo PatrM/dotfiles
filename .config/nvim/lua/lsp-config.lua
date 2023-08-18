@@ -47,3 +47,10 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+vim.cmd [[
+augroup jdtls_lsp
+  autocmd!
+  autocmd FileType java lua require('jdtls-config').setup(config)
+augroup end
+]]

@@ -37,7 +37,7 @@ require('packer').startup(function(use)
       end
     }
     -- Copilot
-    use 'github/copilot.vim'
+    -- use 'github/copilot.vim'
 
     -- Telescope
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
