@@ -9,8 +9,7 @@
   * Afterwards [Java versions](https://sdkman.io/jdks#oracle), [maven/gradle](https://sdkman.io/sdks#gradle)
 * NVM <https://github.com/nvm-sh/nvm#install--update-script>
   * Afterwards, execute `nvm install 'lts/*'`
-* Execute `symlink_setup.sh` in root of repository
-* Misc tools provided via npm: `npm install -g rimraf`
+* Execute `stow -t ~ .` in root of repository
 * Fzf <https://github.com/junegunn/fzf>
 * Fd <https://github.com/sharkdp/fd>
 
