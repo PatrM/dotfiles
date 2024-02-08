@@ -4,7 +4,7 @@ local bindToCtrlLaunchOrFocus = function(key, application)
     hs.application.launchOrFocus(application)
   end)
 end
-bindToCtrlLaunchOrFocus("1", "kitty")
+bindToCtrlLaunchOrFocus("1", "WezTerm")
 bindToCtrlLaunchOrFocus("2", "IntelliJ IDEA")
 bindToCtrlLaunchOrFocus("3", "Obsidian")
 bindToCtrlLaunchOrFocus("4", "Brave Browser")
