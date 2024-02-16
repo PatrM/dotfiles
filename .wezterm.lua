@@ -11,6 +11,10 @@ config.color_scheme = 'carbonfox'
 
 config.font_size = 14.0
 
+config.font = wezterm.font_with_fallback {
+    {family='Cascadia Code', weight=600}
+}
+
 config.keys = {
     {
         key = "Return",
