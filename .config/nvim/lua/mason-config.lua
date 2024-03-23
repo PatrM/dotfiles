@@ -1,8 +1,9 @@
 require('mason').setup()
+vim.filetype.add({ extension = { templ = "templ" } })
 require('mason-lspconfig').setup({
     ensure_installed = {
         'pyright', 'tsserver', 'dockerls', 'cssls',
-        'tailwindcss', 'ansiblels', 'gopls', 'gradle_ls',
+        'tailwindcss', 'ansiblels', 'gopls', 'templ', 'gradle_ls',
         'jsonls', 'rust_analyzer', 'lua_ls',
         'angularls', 
         -- 'jdtls', 
