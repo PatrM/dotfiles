@@ -10,8 +10,8 @@ fi
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export PATH=/$HOME/dev/tools/neovim/bin:$PATH
 
-mkdir -p $HOME/.go
-export GOPATH=$HOME/.go
+mkdir -p $HOME/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 
