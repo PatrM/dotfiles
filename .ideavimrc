@@ -39,4 +39,6 @@ if has('ide')
   nnoremap <C-v> :action SplitVertically<cr>
   nnoremap <C-h> :action SplitHorizontally<cr>
 
+  nnoremap <leader>cc :action Jdbc.OpenConsole.Any<cr>
+
 endif
