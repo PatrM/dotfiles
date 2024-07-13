@@ -18,7 +18,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require('packer').startup(function(use)
-
     use 'wbthomason/packer.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'MDeiml/tree-sitter-markdown'
@@ -27,14 +26,14 @@ require('packer').startup(function(use)
     use 'tpope/vim-commentary'
     use 'p00f/nvim-ts-rainbow'
     use {
-      "folke/which-key.nvim",
-      config = function()
-        require("which-key").setup {
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        }
-      end
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
     }
     -- Copilot
     -- use 'github/copilot.vim'
@@ -48,6 +47,14 @@ require('packer').startup(function(use)
             { "nvim-telescope/telescope-live-grep-args.nvim" }
         }
     }
+
+    -- Aerial - Code Outline
+    use({
+        "stevearc/aerial.nvim",
+        config = function()
+            require("aerial").setup()
+        end,
+    })
 
     -- Styling
     use 'morhetz/gruvbox'
@@ -66,38 +73,19 @@ require('packer').startup(function(use)
         requires = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icon
         },
-        config = function() require 'nvim-tree'.setup({
-            filters = {
-                dotfiles = false,
-            },
-            renderer = {
-                group_empty = true
-            }
-        }) end
+        config = function()
+            require 'nvim-tree'.setup({
+                filters = {
+                    dotfiles = false,
+                },
+                renderer = {
+                    group_empty = true
+                }
+            })
+        end
     }
     -- Dashboard
     use 'mhinz/vim-startify'
-
-    use({
-        "epwalsh/obsidian.nvim",
-        config = function()
-            require("obsidian").setup({
-                dir = "~/dev/personal/abathur",
-                daily_notes = {
-                    folder = "journal",
-                    date_format = "%Y-%m-%d"
-                },
-                completion = {
-                    nvim_cmp = true,
-                    min_chars = 2
-                },
-                follow_url_func = function(url)
-                    vim.fn.jobstart({ "open", url }) -- Mac OS
-                end,
-                finder = "telescope.nvim"
-            })
-        end,
-    })
 
     -- Git related
     use 'tpope/vim-fugitive'
@@ -113,25 +101,25 @@ require('packer').startup(function(use)
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use {
-      'VonHeikemen/lsp-zero.nvim',
-      branch = 'v1.x',
-      requires = {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v1.x',
+        requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},         -- Required
-            {'hrsh7th/cmp-nvim-lsp'},     -- Required
-            {'hrsh7th/cmp-buffer'},       -- Optional
-            {'hrsh7th/cmp-path'},         -- Optional
-            {'saadparwaiz1/cmp_luasnip'}, -- Optional
-            {'hrsh7th/cmp-nvim-lua'},     -- Optional
+            { 'hrsh7th/nvim-cmp' },         -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
+            { 'hrsh7th/cmp-buffer' },       -- Optional
+            { 'hrsh7th/cmp-path' },         -- Optional
+            { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},             -- Required
-            {'rafamadriz/friendly-snippets'}, -- Optional
+            { 'L3MON4D3/LuaSnip' },             -- Required
+            { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
     use({
@@ -176,7 +164,6 @@ require('packer').startup(function(use)
     -- SQL
     use 'tpope/vim-dadbod'
     use 'kristijanhusak/vim-dadbod-ui'
-
 end)
 
 
@@ -195,6 +182,24 @@ require('lsp-config')
 require('custom-statusline')
 require('custom-note-taking')
 -- require('lua-snip-config')
+
+-- Aerial
+local aerial = require('aerial')
+aerial.setup({
+    close_automatic_events = "unsupported",
+    open_automatic = function(bufnr)
+        -- Enforce a minimum line count
+        return vim.api.nvim_buf_line_count(bufnr) > 40
+            -- Enforce a minimum symbol count
+            and aerial.num_symbols(bufnr) > 4
+            -- A useful way to keep aerial closed when closed manually
+            and not aerial.was_closed()
+    end,
+    lazy_load = false,
+
+})
+require("telescope").load_extension("aerial")
+
 --------------------------- nvim-tree
 require 'nvim-tree'.setup {
     auto_reload_on_write = true,
@@ -211,12 +216,13 @@ vim.g.nvim_tree_git_highlights = 1
 vim.keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>to', '<cmd>NvimTreeFindFile<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>tr', '<cmd>NvimTreeRefresh<cr>', { noremap = true })
+vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle<cr>', { noremap = true })
 
 --------------------------- Dashboard
 vim.g.startify_change_to_vcs_root = 1
 --------------------------- icons
 require 'nvim-web-devicons'.setup {
-    default = true;
+    default = true,
 }
 
 --------------------------- gitsigns
@@ -259,9 +265,9 @@ vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv", { noremap = true })
 vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv", { noremap = true })
 
 -- Enclosing current word with quote
-vim.keymap.set('n', "<Leader>q'", "ciw''<Esc>P", {noremap = true })
-vim.keymap.set('n', '<Leader>q"', 'ciw""<Esc>P', {noremap = true })
-vim.keymap.set('n', '<Leader>q`', 'ciw``<Esc>P', {noremap = true })
+vim.keymap.set('n', "<Leader>q'", "ciw''<Esc>P", { noremap = true })
+vim.keymap.set('n', '<Leader>q"', 'ciw""<Esc>P', { noremap = true })
+vim.keymap.set('n', '<Leader>q`', 'ciw``<Esc>P', { noremap = true })
 
 
 --------------------------- buffer movement
