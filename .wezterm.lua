@@ -21,6 +21,11 @@ config.keys = {
         mods = "CMD",
         action = wezterm.action { SplitHorizontal = {} }
     },
+    {
+        key = "Return",
+        mods = "CMD|SHIFT",
+        action = wezterm.action { SplitVertical = {} }
+    },
 }
 
 -- and finally, return the configuration to wezterm
