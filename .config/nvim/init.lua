@@ -51,9 +51,9 @@ require('packer').startup(function(use)
     -- Aerial - Code Outline
     use({
         "stevearc/aerial.nvim",
-        config = function()
-            require("aerial").setup()
-        end,
+        -- config = function()
+        -- require("aerial").setup()
+        -- end,
     })
 
     -- Styling
@@ -105,20 +105,20 @@ require('packer').startup(function(use)
         branch = 'v1.x',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
+            { 'neovim/nvim-lspconfig' }, -- Required
+            { 'williamboman/mason.nvim' }, -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },         -- Required
-            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
-            { 'hrsh7th/cmp-buffer' },       -- Optional
-            { 'hrsh7th/cmp-path' },         -- Optional
+            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'hrsh7th/cmp-buffer' }, -- Optional
+            { 'hrsh7th/cmp-path' }, -- Optional
             { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
+            { 'hrsh7th/cmp-nvim-lua' }, -- Optional
 
             -- Snippets
-            { 'L3MON4D3/LuaSnip' },             -- Required
+            { 'L3MON4D3/LuaSnip' }, -- Required
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
@@ -186,7 +186,7 @@ require('custom-note-taking')
 -- Aerial
 local aerial = require('aerial')
 aerial.setup({
-    close_automatic_events = "unsupported",
+    close_automatic_events = { "unsupported" },
     open_automatic = function(bufnr)
         -- Enforce a minimum line count
         return vim.api.nvim_buf_line_count(bufnr) > 40
@@ -196,9 +196,7 @@ aerial.setup({
             and not aerial.was_closed()
     end,
     lazy_load = false,
-
 })
-require("telescope").load_extension("aerial")
 
 --------------------------- nvim-tree
 require 'nvim-tree'.setup {
