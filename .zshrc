@@ -8,7 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
-export PATH=/$HOME/dev/tools/neovim/bin:$PATH
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
 mkdir -p $HOME/go
 export GOPATH=$HOME/go
@@ -87,6 +87,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
     zsh-autosuggestions
+
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -4,4 +4,3 @@ alias ll='ls -al'
 alias ls='ls --color=auto'
 alias git_authors="git shortlog -sne --all"
 alias tmux_reload="tmux source-file ~/.tmux.conf"
-alias nvim='$HOME/dev/tools/neovim/nvim-macos/bin/nvim'
