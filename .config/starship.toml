@@ -1,0 +1,59 @@
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)'
+
+
+# System
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = ' '
+style = 'bold dimmed green'
+
+# AWS
+[aws]
+format = 'on [$symbol$region]($style) '
+style = 'bold blue'
+symbol = '🅰 '
+[aws.region_aliases]
+ap-southeast-2 = 'au'
+us-east-1 = 'va'
+eu-west-1 = 'euw-1'
+eu-west-2 = 'euw-2'
+
+# Docker
+[docker_context]
+format = 'via [🐋 $context](blue bold)'
+
+# Git
+[git_branch]
+symbol = '🌱 '
+truncation_length = 4
+truncation_symbol = ''
+ignore_branches = ['master', 'main']
+[git_commit]
+commit_hash_length = 4
+tag_symbol = '🔖 '
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+[git_metrics]
+added_style = 'bold blue'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+
+# Go
+[golang]
+format = 'via [🏎💨 $version](bold cyan) '
+
+# Java
+[java]
+symbol = '🌟 '
+
+# Python
+[python]
+symbol = '👾 '
+pyenv_version_name = true

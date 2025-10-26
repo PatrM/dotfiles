@@ -1,9 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -18,11 +12,18 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# Starship optional installation + sourcing
+if ! command -v starship >/dev/null 2>&1; then
+    STARSHIP_HOME="${HOME}/.local/bin"
+    mkdir -p "$STARSHIP_HOME"
+    if [ ! -x "${STARSHIP_HOME}/starship" ]; then
+      echo "starship missing; installing to ${STARSHIP_HOME}..."
+      curl -fsSL https://starship.rs/install.sh | sh -s -- -y --bin-dir "${STARSHIP_HOME}"
+    fi
+    export PATH="${STARSHIP_HOME}:${PATH}"
+  fi
+
+  eval "$(starship init zsh)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
