@@ -182,3 +182,24 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+
+# Auto-activate Python virtualenv when entering a directory with .venv
+autoload -U add-zsh-hook
+
+function auto_venv() {
+  if [ -n "$VIRTUAL_ENV" ] && [ ! -d "$PWD/.venv" ]; then
+    deactivate >/dev/null 2>&1
+  fi
+
+  if [ -d "$PWD/.venv" ] && [ -z "$VIRTUAL_ENV" ]; then
+    source "$PWD/.venv/bin/activate"
+  fi
+}
+
+add-zsh-hook chpwd auto_venv
+# Also run once on shell start (in case you start inside a venv directory)
+auto_venv
+
+# Added by Antigravity
+export PATH="/Users/patrick/.antigravity/antigravity/bin:$PATH"
