@@ -22,6 +22,34 @@ if ! command -v starship >/dev/null 2>&1; then
 
   eval "$(starship init zsh)"
 
+# Keep a usable history and completions even without oh-my-zsh
+bindkey -e
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=50000
+setopt inc_append_history share_history hist_ignore_all_dups hist_find_no_dups extended_glob
+
+autoload -Uz compinit
+ZCOMPDUMP=${ZDOTDIR:-$HOME}/.zcompdump
+if [[ -n ${ZCOMPDUMP}(#qN.mh-24) ]]; then
+  compinit -C
+else
+  compinit
+fi
+
+# Prefix-search on arrow keys like the old history-substring-search plugin
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+
+# Autosuggestions from history (Homebrew or manual install)
+if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [ -f "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+  source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
 # User configuration and aliases
 
 source ~/.aliases
