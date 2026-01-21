@@ -63,7 +63,7 @@ fi
 
 # User configuration and aliases
 
-source ~/.aliases
+source ~/.aliases || true
 source ~/.aliases-local || true
 
 # custom functions
