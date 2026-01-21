@@ -42,12 +42,23 @@ bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
 # Autosuggestions from history (Homebrew or manual install)
+ZSH_AUTOSUGGEST_DIR="$HOME/.zsh/zsh-autosuggestions"
+ZSH_AUTOSUGGEST_FILE="$ZSH_AUTOSUGGEST_DIR/zsh-autosuggestions.zsh"
+if [ ! -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] \
+  && [ ! -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] \
+  && [ ! -f "$ZSH_AUTOSUGGEST_FILE" ]; then
+  if command -v git >/dev/null 2>&1; then
+    mkdir -p "$HOME/.zsh"
+    GIT_TERMINAL_PROMPT=0 git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_AUTOSUGGEST_DIR" >/dev/null 2>&1
+  fi
+fi
+
 if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 elif [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-elif [ -f "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-  source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+elif [ -f "$ZSH_AUTOSUGGEST_FILE" ]; then
+  source "$ZSH_AUTOSUGGEST_FILE"
 fi
 
 # User configuration and aliases
