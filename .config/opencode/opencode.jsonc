@@ -1,0 +1,75 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "mcp": {
+        "playwright": {
+            "type": "local",
+            "command": [
+                "npx",
+                "@playwright/mcp@latest"
+            ],
+            "enabled": true
+        },
+        "filesystem-user": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "/Users/patrick/"
+            ],
+            "enabled": true
+        },
+        "filesystem-tmp": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "/tmp/"
+            ],
+            "enabled": true
+        },
+        "atlassian": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "mcp-remote",
+                "https://mcp.atlassian.com/v1/sse"
+            ],
+            "enabled": true
+        },
+        "context7": {
+            "type": "remote",
+            "url": "https://mcp.context7.com/mcp",
+            "headers": {
+                "CONTEXT7_API_KEY": "ctx7sk-55819abd-f62d-4be2-abee-9c3095fb5c27"
+            },
+            "enabled": true
+        },
+        "java": {
+            "type": "local",
+            "command": [
+                "jdtls",
+                "--java-executable",
+                "$HOME/.sdkman/candidates/java/21.0.9-amzn/bin/java"
+            ],
+            "enabled": true
+        },
+        "kotlin": {
+            "type": "local",
+            "command": [
+                "kotlin-lsp"
+            ],
+            "enabled": true
+        }
+    },
+    "permission": {
+        "read": {
+            "*": "allow",
+            "*.env": "deny",
+            "*.env.*": "deny",
+            "*.env.example": "allow"
+        }
+    }
+}
