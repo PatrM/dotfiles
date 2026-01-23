@@ -34,7 +34,12 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_transparent = true
 vim.g.tokyonight_transparent_sidebar = true
 
+vim.g.dracula_transparent_bg = true
+vim.g.dracula_transparent_sidebar = true
+
 --#region generic colorscheme adaptions
 vim.cmd "highlight Normal guibg=NONE"
 vim.cmd "highlight VertSplit guifg=cyan"
+vim.cmd "highlight NeoTreeNormal guibg=NONE"
+vim.cmd "highlight NeoTreeNormalNC guibg=NONE"
 --#endregion
