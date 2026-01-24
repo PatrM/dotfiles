@@ -65,6 +65,9 @@
         }
     },
     "permission": {
+        "skill": {
+            "*": "allow"
+        },
         "read": {
             "*": "allow",
             "*.env": "deny",
