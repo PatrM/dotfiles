@@ -5,10 +5,17 @@ success_symbol = '[➜](bold green)'
 
 # System
 [memory_usage]
-disabled = false
+disabled = true
 threshold = -1
 symbol = ' '
 style = 'bold dimmed green'
+
+# Battery
+[battery]
+disabled = false
+[[battery.display]]
+threshold = 20
+
 
 # AWS
 [aws]
@@ -28,9 +35,9 @@ format = 'via [🐋 $context](blue bold)'
 # Git
 [git_branch]
 symbol = '🌱 '
-truncation_length = 4
+truncation_length = 16
 truncation_symbol = ''
-ignore_branches = ['master', 'main']
+# ignore_branches = ['master', 'main']
 [git_commit]
 commit_hash_length = 4
 tag_symbol = '🔖 '
@@ -57,3 +64,4 @@ symbol = '🌟 '
 [python]
 symbol = '👾 '
 pyenv_version_name = true
+
