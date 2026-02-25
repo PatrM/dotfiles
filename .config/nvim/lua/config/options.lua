@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 vim.g.deprecation_warnings = true
+vim.g.autoformat = false
 
 
 vim.opt.termguicolors = true
