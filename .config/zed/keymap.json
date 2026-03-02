@@ -1,0 +1,33 @@
+[
+  {
+    "context": "Editor && vim_mode == normal && !menu",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "ctrl-p": "file_finder::Toggle",
+
+      "space f c": "project_symbols::Toggle",
+      "space f a": "project_search::SearchInNew",
+      "space f w": "pane::RevealInProjectPanel",
+
+      "space r r": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+
+      "g i": "editor::GoToImplementation",
+      "g r": "editor::FindAllReferences",
+
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+
+      "space d b": "editor::ToggleBreakpoint",
+      "space d c": "debugger::Continue",
+      "space a d": "debugger::Start",
+
+      "space v v": "workspace::ToggleCenteredLayout",
+
+      "ctrl-v": "pane::SplitVertical",
+      "ctrl-h": "pane::SplitHorizontal",
+
+      "space b b": "tab_switcher::Toggle"
+    }
+  },
+]
