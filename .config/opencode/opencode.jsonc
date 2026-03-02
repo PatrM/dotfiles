@@ -11,9 +11,20 @@
             "enabled": true
         },
         "atlassian": {
+<<<<<<< HEAD
             "type": "remote",
             "url": "https://mcp.atlassian.com/v1/mcp",
             "enabled": true
+=======
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "mcp-remote",
+                "https://mcp.atlassian.com/v1/sse"
+            ],
+            "enabled": false
+>>>>>>> c997a0b (minor zed config)
         },
         "sentry": {
       "type": "remote",

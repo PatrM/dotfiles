@@ -4,3 +4,5 @@ alias ll='ls -al'
 alias ls='ls --color=auto'
 alias git_authors="git shortlog -sne --all"
 alias tmux_reload="tmux source-file ~/.tmux.conf"
+
+CONTEXT7_API_KEY=ctx7sk-f36deaa7-62ac-4745-a0fb-5eaa6dc9a92e

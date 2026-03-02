@@ -8,8 +8,25 @@
 // from the command palette or from `Zed` application menu.
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "cli_default_open_behavior": "existing_window",
 =======
+=======
+  "project_panel": {
+    "hide_root": false,
+    "sticky_scroll": true,
+    "bold_folder_labels": false
+  },
+  "context_servers": {
+    "mcp-server-context7": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "context7_api_key": ""
+      }
+    }
+  },
+>>>>>>> c997a0b (minor zed config)
   "agent": {
     "default_model": {
       "provider": "openai",
