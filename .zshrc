@@ -146,3 +146,10 @@ auto_venv
 
 # Added by Antigravity
 export PATH="/Users/patrick/.antigravity/antigravity/bin:$PATH"
+
+# bun completions
+[ -s "/Users/patrick/.bun/_bun" ] && source "/Users/patrick/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -1,0 +1,792 @@
+- generic [active] [ref=e1]:
+  - region "workspace.google.com uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic." [ref=e2]:
+    - paragraph [ref=e3]:
+      - text: workspace.google.com uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic.
+      - link "Learn more about how Google uses cookies. Opens in a new tab." [ref=e4] [cursor=pointer]:
+        - /url: https://policies.google.com/technologies/cookies?hl=en
+        - text: Learn more
+    - button "Hide" [ref=e5] [cursor=pointer]
+  - generic [ref=e6]:
+    - generic:
+      - generic: expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more
+      - banner [ref=e7]:
+        - generic [ref=e8]:
+          - text: expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more expand_more
+          - link "Open the Google Workspace page" [ref=e10] [cursor=pointer]:
+            - /url: /
+            - img [ref=e11]
+          - navigation [ref=e19]:
+            - link "Skip to main content" [ref=e20] [cursor=pointer]:
+              - /url: "#main"
+            - group [ref=e21]:
+              - generic "Solutions" [ref=e22] [cursor=pointer]
+            - group [ref=e23]:
+              - generic "Products" [ref=e24] [cursor=pointer]
+            - group [ref=e25]:
+              - generic "Industries" [ref=e26] [cursor=pointer]
+            - link "Open the AI page" [ref=e28] [cursor=pointer]:
+              - /url: /solutions/ai/
+              - text: AI
+            - link "Open the Pricing page" [ref=e30] [cursor=pointer]:
+              - /url: https://workspace.google.com/pricing?source=gafb-calendar-globalnav-en&hl=en&ga_region=amer&ga_country=us&ga_lang=en
+              - text: Pricing
+            - group [ref=e31]:
+              - generic "Resources" [ref=e32] [cursor=pointer]
+          - generic [ref=e33]:
+            - link "Learn more about Google Calendar for work and businesses" [ref=e35] [cursor=pointer]:
+              - /url: https://workspace.google.com/products/calendar/for-work/?from=gafb-calendar-def-en
+              - generic [ref=e36]: Try Calendar for work
+            - link "Sign in to use Google Calendar" [ref=e38] [cursor=pointer]:
+              - /url: https://accounts.google.com/ServiceLogin/identifier?dsh=S1611624178:1665765818620318&continue=https://calendar.google.com/calendar/r&followup=https://calendar.google.com/calendar/r&osid=1&passive=1209600&service=cl&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AQDHYWrL2lk0_Bcr1n1Y-f-i1sNZRKJK8CNisliX9rpozkqKhY2Jby8gsVZ_wDz_oHqiWmN6uZ6s6g
+              - generic [ref=e39]: Sign in
+    - main [ref=e40]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - img "Google Calendar logo" [ref=e51]
+          - heading "Shareable online calendar" [level=1] [ref=e53]
+          - generic [ref=e54]:
+            - paragraph [ref=e55]: Spend less time planning and more time doing with an AI-powered calendar.
+            - generic [ref=e56]:
+              - link "Sign in to use Google Calendar" [ref=e58] [cursor=pointer]:
+                - /url: https://accounts.google.com/ServiceLogin/identifier?dsh=S1611624178:1665765818620318&continue=https://calendar.google.com/calendar/r&followup=https://calendar.google.com/calendar/r&osid=1&passive=1209600&service=cl&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AQDHYWrL2lk0_Bcr1n1Y-f-i1sNZRKJK8CNisliX9rpozkqKhY2Jby8gsVZ_wDz_oHqiWmN6uZ6s6g
+                - generic [ref=e59]: Sign in
+              - link "Learn more about Google Calendar for work and businesses" [ref=e61] [cursor=pointer]:
+                - /url: https://workspace.google.com/products/calendar/for-work/?from=gafb-calendar-def-en
+                - generic [ref=e62]: Try Calendar for work
+        - img "Google Calendar interface showing a weekly schedule and meeting details." [ref=e65]
+      - list [ref=e71]:
+        - listitem [ref=e72]:
+          - option "Jump to the Schedule section" [selected] [ref=e73] [cursor=pointer]:
+            - generic [ref=e74]: Schedule
+        - listitem [ref=e75]:
+          - option "Jump to the Appointment booking section" [ref=e76] [cursor=pointer]:
+            - generic [ref=e77]: Appointment booking
+        - listitem [ref=e78]:
+          - option "Jump to the Organize section" [ref=e79] [cursor=pointer]:
+            - generic [ref=e80]: Organize
+        - listitem [ref=e81]:
+          - option "Jump to the Collaborate section" [ref=e82] [cursor=pointer]:
+            - generic [ref=e83]: Collaborate
+        - listitem [ref=e84]:
+          - option "Jump to the Productivity section" [ref=e85] [cursor=pointer]:
+            - generic [ref=e86]: Productivity
+        - listitem [ref=e87]:
+          - option "Jump to the FAQs section" [ref=e88] [cursor=pointer]:
+            - generic [ref=e89]: FAQs
+      - generic [ref=e94]:
+        - img "An email composition window with Gemini’s “Help me schedule” feature highlighted." [ref=e97]
+        - generic [ref=e99]:
+          - complementary [ref=e102]:
+            - 'button "Open Tooltip: To get Gemini for Google Workspace, you need an existing Workspace plan." [ref=e103]':
+              - generic [ref=e106]: Premium feature
+              - img [ref=e108]
+          - heading "Schedule events faster with Gemini in Gmail" [level=2] [ref=e111]
+          - paragraph [ref=e113]: Help me schedule in Gmail, Gemini finds the best meeting times based on your email context and Google Calendar — so you can share options and book faster, all in one tap.
+      - generic [ref=e118]:
+        - generic [ref=e120]:
+          - complementary [ref=e123]:
+            - 'button "Open Tooltip: To get Gemini for Google Workspace, you need an existing Workspace plan." [ref=e124]':
+              - generic [ref=e127]: Premium feature
+              - img [ref=e129]
+          - heading "Add events from email with a click" [level=2] [ref=e132]
+          - paragraph [ref=e134]: When Gemini detects event details in an email, simply click the "Add to Calendar" button to save it to Calendar. Your event details are accurately captured, right from Gmail.
+        - img "An email with Gemini’s “Add to Calendar” suggestion." [ref=e137]
+      - generic [ref=e142]:
+        - img "A Google Calendar interface showing available appointment slots." [ref=e145]
+        - generic [ref=e147]:
+          - heading "Built-in appointment booking" [level=2] [ref=e149]
+          - generic [ref=e150]:
+            - paragraph [ref=e151]: Skip the back-and-forth and set up an appointment booking page directly in Calendar — no other apps, extensions, or downloads needed. Let clients, customers, and partners book time with you instantly.
+            - complementary [ref=e153]:
+              - 'button "Open Tooltip: This feature is available on Gemini add-on to Workspace plans and Google One Premium plan." [ref=e154]':
+                - generic [ref=e157]: Premium feature
+                - img [ref=e159]
+            - paragraph [ref=e161]: Plus, you can set up multiple booking pages, connect a Stripe account to collect payment, manage automatic email reminders, and more.
+            - link "Learn more about Appointment booking in Google Calendar" [ref=e163] [cursor=pointer]:
+              - /url: https://workspace.google.com/resources/appointment-scheduling/
+              - generic [ref=e164]: Learn more
+      - generic [ref=e170]:
+        - heading "Your schedule, organized across Workspace" [level=3] [ref=e171]
+        - paragraph [ref=e172]: Manage your day with integrations across Tasks, Gmail, and Meet.
+      - generic [ref=e176]:
+        - generic [ref=e177]:
+          - generic [ref=e178]:
+            - img "A Google Calendar showing “Build out pitch deck” task." [ref=e180]
+            - generic [ref=e181]:
+              - heading "Track tasks in Calendar" [level=3] [ref=e182]
+              - paragraph [ref=e184]: Add a date and time to any task, and it automatically appears on your Calendar.
+              - link "Learn more about Google Tasks" [ref=e187] [cursor=pointer]:
+                - /url: https://workspace.google.com/products/tasks/?from=gafb-calendar-def-en#add-tasks
+                - generic [ref=e188]: Learn more about Google Tasks
+          - generic [ref=e189]:
+            - img "A card confirming a “PlayNow Los Angeles” event, with an option to sync to your Google Calendar" [ref=e191]
+            - generic [ref=e192]:
+              - heading "Sync events from Gmail" [level=3] [ref=e193]
+              - paragraph [ref=e195]: Flights, hotels, and restaurant reservations in your inbox are automatically added to Calendar.
+              - link "Learn more about Gmail" [ref=e198] [cursor=pointer]:
+                - /url: https://workspace.google.com/products/gmail/?from=gafb-calendar-def-en
+                - generic [ref=e199]: Learn more about Gmail
+          - generic [ref=e200]:
+            - img "A Google Calendar event for a “Team meeting” with the Gemini will take meeting notes” feature enabled." [ref=e202]
+            - generic [ref=e203]:
+              - heading "Collaborate with Meet" [level=3] [ref=e204]
+              - paragraph [ref=e206]: Easily add Google Meet video conferencing to an event to connect virtually.
+              - link "Learn more about Google Meet" [ref=e209] [cursor=pointer]:
+                - /url: https://workspace.google.com/products/meet/?from=gafb-calendar-def-en
+                - generic [ref=e210]: Learn more about Google Meet
+        - text: arrow_forward arrow_forward
+      - generic [ref=e216]:
+        - heading "Team collaboration made effortless" [level=3] [ref=e223]
+        - generic [ref=e227]:
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - img "A calendar settings menu for toggling \"My calendars\" and \"Other calendars.\"" [ref=e231]
+              - generic [ref=e232]:
+                - heading "Share calendars with others" [level=3] [ref=e233]
+                - paragraph [ref=e235]: Shared calendars keep everyone in sync and make it easy to view times that work across schedules.
+            - generic [ref=e236]:
+              - img "A calendar event detail card with attachments and a 10-minute reminder." [ref=e238]
+              - generic [ref=e239]:
+                - heading "Attach files to events" [level=3] [ref=e240]
+                - paragraph [ref=e242]: Consolidate details in one place by attaching relevant agendas, pre-reads, and documents directly to your event.
+            - generic [ref=e243]:
+              - img "A calendar menu for setting weekly work hours and locations." [ref=e245]
+              - generic [ref=e246]:
+                - heading "Set working location and hours" [level=3] [ref=e247]
+                - paragraph [ref=e249]: Let your teammates know where you'll be working from and what your working hours are.
+          - text: arrow_forward arrow_forward
+      - heading "Maximize your productivity" [level=3] [ref=e258]
+      - generic [ref=e262]:
+        - generic [ref=e265]:
+          - group [ref=e267]:
+            - generic "Track how you spend time" [ref=e268] [cursor=pointer]:
+              - heading "Track how you spend time" [level=3] [ref=e270]
+            - paragraph [ref=e275]: Time Insights help you analyze your schedule, showing you how you spend your time and who you spend it with.
+          - group [ref=e277]:
+            - generic "Block out distractions" [ref=e278] [cursor=pointer]:
+              - heading "Block out distractions" [level=3] [ref=e280]
+          - group [ref=e282]:
+            - generic "Stay organized with multiple calendars" [ref=e283] [cursor=pointer]:
+              - heading "Stay organized with multiple calendars" [level=3] [ref=e285]
+          - group [ref=e287]:
+            - generic "Customize your view" [ref=e288] [cursor=pointer]:
+              - heading "Customize your view" [level=3] [ref=e290]
+        - generic [ref=e293]:
+          - generic:
+            - img "A photo of a man working on a laptop and a “Time insights” card showing a chart of time spent on tasks."
+      - generic [ref=e298]:
+        - generic [ref=e299]:
+          - heading "Curious about Google Calendar?" [level=2] [ref=e300]
+          - paragraph [ref=e302]: Take a look at our FAQ to learn more.
+        - generic [ref=e303]:
+          - generic [ref=e306]:
+            - button "Expand all" [ref=e311] [cursor=pointer]:
+              - generic [ref=e312]: Expand all unfold_more
+            - list [ref=e313]:
+              - generic:
+                - listitem [ref=e314]:
+                  - group [ref=e316]:
+                    - generic "Where can I access Google Calendar?" [ref=e317] [cursor=pointer]:
+                      - generic [ref=e318]: Where can I access Google Calendar?
+                      - img [ref=e319]
+                    - paragraph [ref=e323]:
+                      - text: You can access Google Calendar on the web, through mobile apps for
+                      - link "Open the Android page in a new tab" [ref=e325] [cursor=pointer]:
+                        - /url: https://play.google.com/store/apps/details?id=com.google.android.calendar&hl=en_US
+                        - text: Android
+                      - text: and
+                      - link "Open the iOS page in a new tab" [ref=e327] [cursor=pointer]:
+                        - /url: https://apps.apple.com/us/app/google-calendar-get-organized/id909319292
+                        - text: iOS
+                      - text: ", and on your"
+                      - link "Open the Wear OS page in a new tab" [ref=e329] [cursor=pointer]:
+                        - /url: https://support.google.com/wearos/answer/14143488?hl=en
+                        - text: Wear OS
+                      - text: or
+                      - link "Open the Apple Watch page in a new tab" [ref=e331] [cursor=pointer]:
+                        - /url: https://support.google.com/calendar/answer/16404789?hl=en
+                        - text: Apple Watch
+                      - text: devices. Your calendar is automatically and seamlessly synced across all these platforms.
+                - listitem [ref=e332]:
+                  - group [ref=e334]:
+                    - generic "Can I migrate and sync all my calendars?" [ref=e335] [cursor=pointer]:
+                      - generic [ref=e336]: Can I migrate and sync all my calendars?
+                      - img [ref=e337]
+                - listitem [ref=e339]:
+                  - group [ref=e341]:
+                    - generic "Is the information that I have on my Google Calendar safe?" [ref=e342] [cursor=pointer]:
+                      - generic [ref=e343]: Is the information that I have on my Google Calendar safe?
+                      - img [ref=e344]
+                - listitem [ref=e346]:
+                  - group [ref=e348]:
+                    - generic "Does Google Calendar offer appointment scheduling?" [ref=e349] [cursor=pointer]:
+                      - generic [ref=e350]: Does Google Calendar offer appointment scheduling?
+                      - img [ref=e351]
+                - listitem [ref=e353]:
+                  - group [ref=e355]:
+                    - generic "Can I create a Google Calendar for a group?" [ref=e356] [cursor=pointer]:
+                      - generic [ref=e357]: Can I create a Google Calendar for a group?
+                      - img [ref=e358]
+                - listitem [ref=e360]:
+                  - group [ref=e362]:
+                    - generic "How do I add a location or meeting room to a Google Calendar invite?" [ref=e363] [cursor=pointer]:
+                      - generic [ref=e364]: How do I add a location or meeting room to a Google Calendar invite?
+                      - img [ref=e365]
+                - listitem [ref=e367]:
+                  - group [ref=e369]:
+                    - generic "Can I create a dedicated family calendar?" [ref=e370] [cursor=pointer]:
+                      - generic [ref=e371]: Can I create a dedicated family calendar?
+                      - img [ref=e372]
+          - generic [ref=e374]:
+            - generic [ref=e376]:
+              - heading "Need more help?" [level=3] [ref=e377]
+              - generic [ref=e378]:
+                - paragraph [ref=e379]: Browse tips and step-by-step guides made for both new users and power users.
+                - link "Visit the Google Workspace help center" [ref=e381] [cursor=pointer]:
+                  - /url: https://support.google.com/calendar/
+                  - generic [ref=e382]: Help center
+            - generic [ref=e384]:
+              - heading "Get live support" [level=3] [ref=e385]
+              - generic [ref=e386]:
+                - paragraph [ref=e387]: Get access to a team of Google experts who can answer your Workspace questions and guide you to a solution.
+                - link "Reach out to the Google Workspace support team" [ref=e389] [cursor=pointer]:
+                  - /url: https://support.google.com/a/answer/1047213?hl=en&ref_topic=7067151
+                  - generic [ref=e390]: Get support
+      - generic [ref=e399]:
+        - img "Google Calendar product icon" [ref=e402]
+        - generic [ref=e404]:
+          - heading "Plan your day with Google Calendar" [level=2] [ref=e405]
+          - link "Sign in to use Google Calendar" [ref=e407] [cursor=pointer]:
+            - /url: https://accounts.google.com/ServiceLogin/identifier?dsh=S1611624178:1665765818620318&continue=https://calendar.google.com/calendar/r&followup=https://calendar.google.com/calendar/r&osid=1&passive=1209600&service=cl&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AQDHYWrL2lk0_Bcr1n1Y-f-i1sNZRKJK8CNisliX9rpozkqKhY2Jby8gsVZ_wDz_oHqiWmN6uZ6s6g
+            - generic [ref=e408]: Sign in
+          - link "Learn more about Google Calendar for work and businesses" [ref=e410] [cursor=pointer]:
+            - /url: https://workspace.google.com/products/calendar/for-work/?from=gafb-calendar-def-en
+            - generic [ref=e411]: Try Calendar for work
+    - generic [ref=e414]:
+      - generic:
+        - generic [ref=e417]:
+          - generic [ref=e418]:
+            - heading "Sign up for productivity, collaboration, and AI updates" [level=2] [ref=e420]
+            - generic [ref=e422]:
+              - button "1"
+              - button "2"
+          - generic [ref=e426]:
+            - generic [ref=e427]:
+              - generic [ref=e432]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: First name*
+                - generic [ref=e434]:
+                  - generic:
+                    - generic: First name*
+                  - textbox "First name" [ref=e437]
+              - generic [ref=e442]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Last name*
+                - generic [ref=e444]:
+                  - generic:
+                    - generic: Last name*
+                  - textbox "Last name" [ref=e447]
+              - generic [ref=e452]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Business email*
+                - generic [ref=e454]:
+                  - generic:
+                    - generic: Business email*
+                  - textbox "Business email" [ref=e457]
+              - generic [ref=e460]:
+                - combobox "Selected country" [ref=e462]:
+                  - generic [ref=e465]: United States +1
+                - textbox "201-555-0123" [ref=e467]
+            - button "Open the Continue page" [ref=e470] [cursor=pointer]:
+              - generic [ref=e471]: Continue
+        - contentinfo [ref=e473]:
+          - generic [ref=e474]:
+            - generic [ref=e475]:
+              - generic [ref=e476]:
+                - generic [ref=e477]:
+                  - paragraph [ref=e479]:
+                    - text: Follow our
+                    - link "Open the Blog page" [ref=e481] [cursor=pointer]:
+                      - /url: https://workspace.google.com/blog/
+                      - text: Blog
+                  - list [ref=e482]:
+                    - listitem [ref=e483]:
+                      - link "Open the footer social links X page in a new tab" [ref=e484] [cursor=pointer]:
+                        - /url: https://x.com/googleworkspace
+                        - img "Follow us on X" [ref=e486]
+                    - listitem [ref=e487]:
+                      - link "Open the footer social links YouTube page in a new tab" [ref=e488] [cursor=pointer]:
+                        - /url: https://www.youtube.com/channel/UCBmwzQnSoj9b6HzNmFrg_yw/
+                        - img "YouTube" [ref=e490]
+                    - listitem [ref=e491]:
+                      - link "Open the footer social links LinkedIn page in a new tab" [ref=e492] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/showcase/googleworkspace/
+                        - img "LinkedIn" [ref=e494]
+                    - listitem [ref=e495]:
+                      - link "Open the footer social links Instagram page in a new tab" [ref=e496] [cursor=pointer]:
+                        - /url: https://www.instagram.com/googleworkspace/
+                        - img "Instagram" [ref=e498]
+                    - listitem [ref=e499]:
+                      - link "Open the footer social links Facebook page in a new tab" [ref=e500] [cursor=pointer]:
+                        - /url: https://www.facebook.com/googleworkspace/
+                        - img "Facebook" [ref=e502]
+                    - listitem [ref=e503]:
+                      - link "Open the footer social links TikTok page in a new tab" [ref=e504] [cursor=pointer]:
+                        - /url: https://goo.gle/3xj0b2F
+                        - img "TikTok" [ref=e506]
+                - textbox "Search this site" [ref=e508]
+              - generic [ref=e509]:
+                - list [ref=e510]:
+                  - list [ref=e511]:
+                    - listitem [ref=e512]:
+                      - link "Open the Included applications page" [ref=e513] [cursor=pointer]:
+                        - /url: /features/
+                        - text: Included applications
+                    - list [ref=e514]:
+                      - listitem [ref=e515]:
+                        - link "Open the Gmail page" [ref=e517] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/gmail/?from=gafb-calendar-def-en
+                          - text: Gmail
+                      - listitem [ref=e518]:
+                        - link "Open the Meet page" [ref=e520] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/meet/?from=gafb-calendar-def-en
+                          - text: Meet
+                      - listitem [ref=e521]:
+                        - link "Open the Chat page" [ref=e523] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/chat/?from=gafb-calendar-def-en
+                          - text: Chat
+                      - listitem [ref=e524]:
+                        - link "Open the Calendar page" [ref=e526] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/calendar/?from=gafb-calendar-def-en
+                          - text: Calendar
+                      - listitem [ref=e527]:
+                        - link "Open the Drive page" [ref=e529] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/drive/?from=gafb-calendar-def-en
+                          - text: Drive
+                      - listitem [ref=e530]:
+                        - link "Open the Docs page" [ref=e532] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/docs/?from=gafb-calendar-def-en
+                          - text: Docs
+                      - listitem [ref=e533]:
+                        - link "Open the Sheets page" [ref=e535] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/sheets/?from=gafb-calendar-def-en
+                          - text: Sheets
+                      - listitem [ref=e536]:
+                        - link "Open the Slides page" [ref=e538] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/slides/?from=gafb-calendar-def-en
+                          - text: Slides
+                      - listitem [ref=e539]:
+                        - link "Open the Vids page" [ref=e541] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/vids?from=gafb-calendar-def-en
+                          - text: Vids
+                      - listitem [ref=e542]:
+                        - link "Open the Forms page" [ref=e544] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/forms/?from=gafb-calendar-def-en
+                          - text: Forms
+                      - listitem [ref=e545]:
+                        - link "Open the Sites page" [ref=e547] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/sites/?from=gafb-calendar-def-en
+                          - text: Sites
+                      - listitem [ref=e548]:
+                        - link "Open the Keep page" [ref=e550] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/keep/?from=gafb-calendar-def-en
+                          - text: Keep
+                      - listitem [ref=e551]:
+                        - link "Open the Apps Script page" [ref=e553] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/apps-script/?from=gafb-calendar-def-en
+                          - text: Apps Script
+                - list [ref=e554]:
+                  - list [ref=e555]:
+                    - listitem [ref=e556]:
+                      - link "Open the Security and management page" [ref=e557] [cursor=pointer]:
+                        - /url: /security/
+                        - text: Security and management
+                    - list [ref=e558]:
+                      - listitem [ref=e559]:
+                        - link "Open the Admin page" [ref=e561] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/admin/?from=gafb-calendar-def-en
+                          - text: Admin
+                      - listitem [ref=e562]:
+                        - link "Open the Endpoint page" [ref=e564] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/admin/endpoint/?from=gafb-calendar-def-en
+                          - text: Endpoint
+                      - listitem [ref=e565]:
+                        - link "Open the Vault page" [ref=e567] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/vault/?from=gafb-calendar-def-en
+                          - text: Vault
+                      - listitem [ref=e568]:
+                        - link "Open the Work Insights page" [ref=e570] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/workinsights/?from=gafb-calendar-def-en
+                          - text: Work Insights
+                  - list [ref=e571]:
+                    - listitem [ref=e572]:
+                      - generic [ref=e573]: Solutions
+                    - list [ref=e574]:
+                      - listitem [ref=e575]:
+                        - link "Open the New Business page" [ref=e577] [cursor=pointer]:
+                          - /url: /business/new-business/
+                          - text: New Business
+                      - listitem [ref=e578]:
+                        - link "Open the Small Business page" [ref=e580] [cursor=pointer]:
+                          - /url: /business/small-business/
+                          - text: Small Business
+                      - listitem [ref=e581]:
+                        - link "Open the Enterprise page" [ref=e583] [cursor=pointer]:
+                          - /url: /enterprise/
+                          - text: Enterprise
+                      - listitem [ref=e584]:
+                        - link "Open the Retail page" [ref=e586] [cursor=pointer]:
+                          - /url: /industries/retail/
+                          - text: Retail
+                      - listitem [ref=e587]:
+                        - link "Open the Manufacturing page" [ref=e589] [cursor=pointer]:
+                          - /url: /industries/manufacturing/
+                          - text: Manufacturing
+                      - listitem [ref=e590]:
+                        - link "Open the Professional Services page" [ref=e592] [cursor=pointer]:
+                          - /url: /industries/professional-services/
+                          - text: Professional Services
+                      - listitem [ref=e593]:
+                        - link "Open the Technology page" [ref=e595] [cursor=pointer]:
+                          - /url: /industries/technology/
+                          - text: Technology
+                      - listitem [ref=e596]:
+                        - link "Open the Healthcare page" [ref=e598] [cursor=pointer]:
+                          - /url: /industries/healthcare/
+                          - text: Healthcare
+                      - listitem [ref=e599]:
+                        - link "Open the Government page" [ref=e601] [cursor=pointer]:
+                          - /url: /industries/government
+                          - text: Government
+                      - listitem [ref=e602]:
+                        - link "Open the Education page in a new tab" [ref=e604] [cursor=pointer]:
+                          - /url: https://edu.google.com/workspace-for-education/editions/education-fundamentals/?hl=[lang]
+                          - text: Education
+                      - listitem [ref=e605]:
+                        - link "Open the Nonprofits page in a new tab" [ref=e607] [cursor=pointer]:
+                          - /url: https://www.google.com/intl/en/nonprofits
+                          - text: Nonprofits
+                      - listitem [ref=e608]:
+                        - link "Open the Artificial Intelligence page" [ref=e610] [cursor=pointer]:
+                          - /url: /solutions/ai/
+                          - text: Artificial Intelligence
+                - list [ref=e611]:
+                  - list [ref=e612]:
+                    - listitem [ref=e613]:
+                      - link "Open the Pricing page" [ref=e614] [cursor=pointer]:
+                        - /url: https://workspace.google.com/pricing/?hl=en&source=gafb-calendar-footer-en&ga_region=amer&ga_country=us&ga_lang=en
+                        - text: Pricing
+                    - list [ref=e615]:
+                      - listitem [ref=e616]:
+                        - link "Open the Compare pricing plans page" [ref=e618] [cursor=pointer]:
+                          - /url: https://workspace.google.com/pricing?source=gafb-calendar-footer-en&hl=en&ga_region=amer&ga_country=us&ga_lang=en
+                          - text: Compare pricing plans
+                  - list [ref=e619]:
+                    - listitem [ref=e620]:
+                      - generic [ref=e621]: Add-ons
+                    - list [ref=e622]:
+                      - listitem [ref=e623]:
+                        - link "Open the Meet hardware page" [ref=e625] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/meet-hardware/?from=gafb-calendar-def-en
+                          - text: Meet hardware
+                      - listitem [ref=e626]:
+                        - link "Open the Google Voice page" [ref=e628] [cursor=pointer]:
+                          - /url: https://workspace.google.com/products/voice/?from=gafb-calendar-def-en
+                          - text: Google Voice
+                      - listitem [ref=e629]:
+                        - link "Open the AppSheet page in a new tab" [ref=e631] [cursor=pointer]:
+                          - /url: https://about.appsheet.com/home/
+                          - text: AppSheet
+                - list [ref=e632]:
+                  - list [ref=e633]:
+                    - listitem [ref=e634]:
+                      - generic [ref=e635]: Resources
+                    - list [ref=e636]:
+                      - listitem [ref=e637]:
+                        - link "Open the Working remotely page" [ref=e639] [cursor=pointer]:
+                          - /url: /resources/working-remotely/
+                          - text: Working remotely
+                      - listitem [ref=e640]:
+                        - link "Open the Security page" [ref=e642] [cursor=pointer]:
+                          - /url: /security/
+                          - text: Security
+                      - listitem [ref=e643]:
+                        - link "Open the Customer Stories page" [ref=e645] [cursor=pointer]:
+                          - /url: /customers/
+                          - text: Customer Stories
+                      - listitem [ref=e646]:
+                        - link "Open the FAQs page" [ref=e648] [cursor=pointer]:
+                          - /url: /faq/
+                          - text: FAQs
+                      - listitem [ref=e649]:
+                        - link "Open the Partners page in a new tab" [ref=e651] [cursor=pointer]:
+                          - /url: https://cloud.withgoogle.com/partners/?products=GOOGLE_WORKSPACE_PRODUCT
+                          - text: Partners
+                      - listitem [ref=e652]:
+                        - link "Open the Marketplace page" [ref=e654] [cursor=pointer]:
+                          - /url: https://workspace.google.com/marketplace/
+                          - text: Marketplace
+                      - listitem [ref=e655]:
+                        - link "Open the Integrations page" [ref=e657] [cursor=pointer]:
+                          - /url: https://workspace.google.com/integrations/
+                          - text: Integrations
+                      - listitem [ref=e658]:
+                        - link "Open the Training & Certification page" [ref=e660] [cursor=pointer]:
+                          - /url: /training/
+                          - text: Training & Certification
+                      - listitem [ref=e661]:
+                        - link "Open the Refer Google Workspace page" [ref=e663] [cursor=pointer]:
+                          - /url: https://workspace.google.com/referral-program/
+                          - text: Refer Google Workspace
+                - list [ref=e664]:
+                  - list [ref=e665]:
+                    - listitem [ref=e666]:
+                      - link "Open the Learning and support page" [ref=e667] [cursor=pointer]:
+                        - /url: /support/
+                        - text: Learning and support
+                    - list [ref=e668]:
+                      - listitem [ref=e669]:
+                        - link "Open the Admin Help page in a new tab" [ref=e671] [cursor=pointer]:
+                          - /url: https://support.google.com/a/#topic=29157
+                          - text: Admin Help
+                      - listitem [ref=e672]:
+                        - link "Open the Setup and Deployment Center page in a new tab" [ref=e674] [cursor=pointer]:
+                          - /url: https://support.google.com/a/answer/6365252
+                          - text: Setup and Deployment Center
+                      - listitem [ref=e675]:
+                        - link "Open the Learning Center for Users page in a new tab" [ref=e677] [cursor=pointer]:
+                          - /url: https://support.google.com/a/users?hl=en_us&#topic=11499463
+                          - text: Learning Center for Users
+                      - listitem [ref=e678]:
+                        - link "Open the Forums for Admins page in a new tab" [ref=e680] [cursor=pointer]:
+                          - /url: https://productforums.google.com/forum/#!forum/apps
+                          - text: Forums for Admins
+                      - listitem [ref=e681]:
+                        - link "Open the Google Workspace Dashboard page in a new tab" [ref=e683] [cursor=pointer]:
+                          - /url: https://www.google.com/appsstatus?hl=en_us
+                          - text: Google Workspace Dashboard
+                      - listitem [ref=e684]:
+                        - link "Open the What's New in Google Workspace page" [ref=e686] [cursor=pointer]:
+                          - /url: https://workspace.google.com/whatsnew/
+                          - text: What's New in Google Workspace
+                      - listitem [ref=e687]:
+                        - link "Open the Find a Google Workspace Partner page in a new tab" [ref=e689] [cursor=pointer]:
+                          - /url: https://www.google.com/a/partnersearch/?hl=en_us
+                          - text: Find a Google Workspace Partner
+                      - listitem [ref=e690]:
+                        - link "Open the Join the community of IT Admins page in a new tab" [ref=e692] [cursor=pointer]:
+                          - /url: https://www.googlecloudcommunity.com/gc/Google-Workspace/ct-p/google-workspace
+                          - text: Join the community of IT Admins
+                      - listitem [ref=e693]:
+                        - link "Open the Press page in a new tab" [ref=e695] [cursor=pointer]:
+                          - /url: https://cloud.google.com/press/
+                          - text: Press
+                  - list [ref=e696]:
+                    - listitem [ref=e697]:
+                      - generic [ref=e698]: More from Google
+                    - list [ref=e699]:
+                      - listitem [ref=e700]:
+                        - link "Open the Google Cloud page in a new tab" [ref=e702] [cursor=pointer]:
+                          - /url: https://cloud.google.com/?hl=en
+                          - text: Google Cloud
+                      - listitem [ref=e703]:
+                        - link "Open the Google Domains page in a new tab" [ref=e705] [cursor=pointer]:
+                          - /url: https://domains.google.com/about/
+                          - text: Google Domains
+                      - listitem [ref=e706]:
+                        - link "Open the Chrome Enterprise page in a new tab" [ref=e708] [cursor=pointer]:
+                          - /url: https://chromeenterprise.google/
+                          - text: Chrome Enterprise
+                      - listitem [ref=e709]:
+                        - link "Open the Google Business Solutions page in a new tab" [ref=e711] [cursor=pointer]:
+                          - /url: https://www.google.com/intl/en_us/services
+                          - text: Google Business Solutions
+                      - listitem [ref=e712]:
+                        - link "Open the Google Ads page in a new tab" [ref=e714] [cursor=pointer]:
+                          - /url: https://ads.google.com/home/?subid=[subid]
+                          - text: Google Ads
+                      - listitem [ref=e715]:
+                        - link "Open the Business Messages page in a new tab" [ref=e717] [cursor=pointer]:
+                          - /url: https://businessmessages.google/
+                          - text: Business Messages
+            - generic [ref=e718]:
+              - generic [ref=e719]:
+                - img "Google" [ref=e722]
+                - list [ref=e723]:
+                  - listitem [ref=e724]:
+                    - link "Open the Privacy page in a new tab" [ref=e725] [cursor=pointer]:
+                      - /url: https://policies.google.com/privacy?hl=en_us
+                      - text: Privacy
+                  - listitem [ref=e726]:
+                    - link "Open the Terms page in a new tab" [ref=e727] [cursor=pointer]:
+                      - /url: https://policies.google.com/terms?hl=en_us
+                      - text: Terms
+                  - listitem [ref=e728]:
+                    - link "Open the About Google page in a new tab" [ref=e729] [cursor=pointer]:
+                      - /url: https://about.google/?hl=en_us
+                      - text: About Google
+                  - listitem [ref=e730]:
+                    - link "Open the Google Products page in a new tab" [ref=e731] [cursor=pointer]:
+                      - /url: https://www.google.com/intl/en_us/about/products/?from=gafb-calendar-def-en
+                      - text: Google Products
+                  - listitem [ref=e732]:
+                    - link "Open the Help page in a new tab" [ref=e733] [cursor=pointer]:
+                      - /url: https://support.google.com/workspace/?hl=en_us
+                      - text: Help
+                - generic [ref=e734]:
+                  - link "Open the Help page in a new tab" [ref=e736] [cursor=pointer]:
+                    - /url: https://support.google.com/a
+                    - img [ref=e737]
+                    - generic [ref=e740]: Help
+                  - button "Change Language" [ref=e743] [cursor=pointer]:
+                    - img [ref=e744]
+                    - generic [ref=e747]:
+                      - generic [ref=e749]: English
+                      - generic [ref=e750]: Change Language
+              - region "Language List":
+                - generic [ref=e751]:
+                  - link "Open the Bahasa Indonesia locale page" [ref=e752] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/id/products/calendar/?from=gafb-calendar-def-en
+                    - text: Bahasa Indonesia
+                  - link "Open the Čeština locale page" [ref=e753] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/cs/products/calendar/?from=gafb-calendar-def-en
+                    - text: Čeština
+                  - link "Open the Dansk locale page" [ref=e754] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/da/products/calendar/?from=gafb-calendar-def-en
+                    - text: Dansk
+                  - link "Open the Deutsch locale page" [ref=e755] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/de/products/calendar/?from=gafb-calendar-def-en
+                    - text: Deutsch
+                  - link "Open the Deutsch – Schweiz locale page" [ref=e756] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/de_ch/products/calendar/?from=gafb-calendar-def-en
+                    - text: Deutsch – Schweiz
+                  - generic [ref=e757]: English
+                  - link "Open the English – Australia locale page" [ref=e758] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_au/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – Australia
+                  - link "Open the English – Canada locale page" [ref=e759] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_ca/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – Canada
+                  - link "Open the English – India locale page" [ref=e760] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_in/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – India
+                  - link "Open the English – Indonesia locale page" [ref=e761] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_id/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – Indonesia
+                  - link "Open the English – Ireland locale page" [ref=e762] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_ie/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – Ireland
+                  - link "Open the English – Malaysia locale page" [ref=e763] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_my/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – Malaysia
+                  - link "Open the English – New Zealand locale page" [ref=e764] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_nz/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – New Zealand
+                  - link "Open the English – Philippines locale page" [ref=e765] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_ph/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – Philippines
+                  - link "Open the English – Singapore locale page" [ref=e766] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_sg/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – Singapore
+                  - link "Open the English – South Africa locale page" [ref=e767] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_za/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – South Africa
+                  - link "Open the English – United Kingdom locale page" [ref=e768] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/en_uk/products/calendar/?from=gafb-calendar-def-en
+                    - text: English – United Kingdom
+                  - link "Open the Español locale page" [ref=e769] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/es/products/calendar/?from=gafb-calendar-def-en
+                    - text: Español
+                  - link "Open the Español (Latinoamérica) locale page" [ref=e770] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/es-419/products/calendar/?from=gafb-calendar-def-en
+                    - text: Español (Latinoamérica)
+                  - link "Open the Español (Latinoamérica) – Argentina locale page" [ref=e771] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/es-419_ar/products/calendar/?from=gafb-calendar-def-en
+                    - text: Español (Latinoamérica) – Argentina
+                  - link "Open the Español (Latinoamérica) – Estados Unidos locale page" [ref=e772] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/es-419_us/products/calendar/?from=gafb-calendar-def-en
+                    - text: Español (Latinoamérica) – Estados Unidos
+                  - link "Open the Español (Latinoamérica) – México locale page" [ref=e773] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/es-419_mx/products/calendar/?from=gafb-calendar-def-en
+                    - text: Español (Latinoamérica) – México
+                  - link "Open the Français locale page" [ref=e774] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/fr/products/calendar/?from=gafb-calendar-def-en
+                    - text: Français
+                  - link "Open the Français – Canada locale page" [ref=e775] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/fr_ca/products/calendar/?from=gafb-calendar-def-en
+                    - text: Français – Canada
+                  - link "Open the Français – Suisse locale page" [ref=e776] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/fr_ch/products/calendar/?from=gafb-calendar-def-en
+                    - text: Français – Suisse
+                  - link "Open the Italiano locale page" [ref=e777] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/it/products/calendar/?from=gafb-calendar-def-en
+                    - text: Italiano
+                  - link "Open the Magyar locale page" [ref=e778] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/hu/products/calendar/?from=gafb-calendar-def-en
+                    - text: Magyar
+                  - link "Open the Nederlands locale page" [ref=e779] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/nl/products/calendar/?from=gafb-calendar-def-en
+                    - text: Nederlands
+                  - link "Open the Norsk locale page" [ref=e780] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/no/products/calendar/?from=gafb-calendar-def-en
+                    - text: Norsk
+                  - link "Open the Polski locale page" [ref=e781] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/pl/products/calendar/?from=gafb-calendar-def-en
+                    - text: Polski
+                  - link "Open the Português (Brasil) locale page" [ref=e782] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/pt-BR/products/calendar/?from=gafb-calendar-def-en
+                    - text: Português (Brasil)
+                  - link "Open the Português (Portugal) locale page" [ref=e783] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/pt-PT/products/calendar/?from=gafb-calendar-def-en
+                    - text: Português (Portugal)
+                  - link "Open the Suomi locale page" [ref=e784] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/fi/products/calendar/?from=gafb-calendar-def-en
+                    - text: Suomi
+                  - link "Open the Svenska locale page" [ref=e785] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/sv/products/calendar/?from=gafb-calendar-def-en
+                    - text: Svenska
+                  - link "Open the Tiếng Việt locale page" [ref=e786] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/vi/products/calendar/?from=gafb-calendar-def-en
+                    - text: Tiếng Việt
+                  - link "Open the Türkçe locale page" [ref=e787] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/tr/products/calendar/?from=gafb-calendar-def-en
+                    - text: Türkçe
+                  - link "Open the Русский locale page" [ref=e788] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/ru/products/calendar/?from=gafb-calendar-def-en
+                    - text: Русский
+                  - link "Open the Українська locale page" [ref=e789] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/uk/products/calendar/?from=gafb-calendar-def-en
+                    - text: Українська
+                  - link "Open the עברית locale page" [ref=e790] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/iw/products/calendar/?from=gafb-calendar-def-en
+                    - text: עברית
+                  - link "Open the العربية locale page" [ref=e791] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/ar/products/calendar/?from=gafb-calendar-def-en
+                    - text: العربية
+                  - link "Open the العربية – مصر locale page" [ref=e792] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/ar_eg/products/calendar/?from=gafb-calendar-def-en
+                    - text: العربية – مصر
+                  - link "Open the ไทย locale page" [ref=e793] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/th/products/calendar/?from=gafb-calendar-def-en
+                    - text: ไทย
+                  - link "Open the 한국어 locale page" [ref=e794] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/ko/products/calendar/?from=gafb-calendar-def-en
+                    - text: 한국어
+                  - link "Open the 中文 (香港) locale page" [ref=e795] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/zh-HK/products/calendar/?from=gafb-calendar-def-en
+                    - text: 中文 (香港)
+                  - link "Open the 中文（简体中文） locale page" [ref=e796] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/zh-CN/products/calendar/?from=gafb-calendar-def-en
+                    - text: 中文（简体中文）
+                  - link "Open the 中文（繁體中文） locale page" [ref=e797] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/zh-TW/products/calendar/?from=gafb-calendar-def-en
+                    - text: 中文（繁體中文）
+                  - link "Open the 日本語 locale page" [ref=e798] [cursor=pointer]:
+                    - /url: https://workspace.google.com/intl/ja/products/calendar/?from=gafb-calendar-def-en
+                    - text: 日本語

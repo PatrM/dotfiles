@@ -31,21 +31,27 @@
             "enabled": true
         },
         "atlassian": {
-            "type": "local",
-            "command": [
-                "npx",
-                "-y",
-                "mcp-remote",
-                "https://mcp.atlassian.com/v1/sse"
-            ],
+            "type": "remote",
+            "url": "https://mcp.atlassian.com/v1/mcp",
             "enabled": true
         },
+        "sentry": {
+      "type": "remote",
+      "url": "https://mcp.sentry.dev/mcp",
+      "oauth": {},
+            "enabled": true
+    },
         "context7": {
             "type": "remote",
             "url": "https://mcp.context7.com/mcp",
             "headers": {
                 "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
             },
+            "enabled": true
+        },
+        "google-calendar": {
+            "type": "remote",
+            "url": "https://calendarmcp.googleapis.com/mcp/v1",
             "enabled": true
         },
         "java": {
@@ -71,6 +77,43 @@
             "headers": {
                 "Authorization": "Bearer {env:TREDICT_PERSONAL_API_KEY}"
             },
+            "enabled": true
+        },
+        "grafana": {
+            "type": "local",
+            "command": [
+                "uvx",
+                "mcp-grafana"
+            ],
+            "environment": {
+                "GRAFANA_URL": "https://grafana.prd.minubo.com/",
+                "GRAFANA_SERVICE_ACCOUNT_TOKEN": "{env:GRAFANA_SERVICE_ACCOUNT_TOKEN}"
+            },
+            "enabled": true
+        },
+        "awslabs.cloudwatch-mcp-server": {
+            "type": "local",
+            "command": [
+                "uvx",
+                "awslabs.cloudwatch-mcp-server@latest"
+            ],
+            "environment": {
+                "AWS_PROFILE": "default",
+                "FASTMCP_LOG_LEVEL": "ERROR"
+            },
+            "enabled": true
+        },
+        "metabase": {
+            "type": "remote",
+            "url": "https://metabase.minubo.com/api/mcp",
+            "enabled": true
+        },
+        "qmd": {
+            "type": "local",
+            "command": [
+                "qmd",
+                "mcp"
+            ],
             "enabled": true
         }
     },
