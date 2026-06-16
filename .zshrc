@@ -2,7 +2,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 mkdir -p $HOME/go
 export GOPATH=$HOME/go
@@ -147,7 +149,14 @@ auto_venv
 # Added by Antigravity
 export PATH="/Users/patrick/.antigravity/antigravity/bin:$PATH"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/patrick/google-cloud-sdk/path.zsh.inc' ]; then . '/home/patrick/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/patrick/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/patrick/google-cloud-sdk/completion.zsh.inc'; fi
+
 # bun completions
+[ -s "/home/patrick/.bun/_bun" ] && source "/home/patrick/.bun/_bun"
 [ -s "/Users/patrick/.bun/_bun" ] && source "/Users/patrick/.bun/_bun"
 
 # bun
