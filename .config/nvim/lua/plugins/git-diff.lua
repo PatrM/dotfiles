@@ -55,6 +55,11 @@ return {
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
     keys = {
       {
+        "<leader>gd",
+        "<cmd>DiffviewOpen<cr>",
+        desc = "Diffview Open",
+      },
+      {
         "<leader>gdm",
         function()
           prompt_and_open(false)
@@ -72,6 +77,16 @@ return {
         "<leader>gdx",
         "<cmd>DiffviewClose<cr>",
         desc = "Close diffview",
+      },
+      {
+        "<leader>gh",
+        "<cmd>DiffviewFileHistory %<cr>",
+        desc = "Diffview File History",
+      },
+      {
+        "<leader>gH",
+        "<cmd>DiffviewFileHistory<cr>",
+        desc = "Diffview Branch History",
       },
     },
     config = function()

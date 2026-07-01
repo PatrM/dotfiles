@@ -76,6 +76,11 @@ config.keys = {
         mods = "CMD|SHIFT",
         action = wezterm.action { SplitVertical = {} }
     },
+    -- Word navigation (OPT as primary; CTRL works if Mission Control shortcuts are disabled)
+    { key = 'LeftArrow',  mods = 'OPT',  action = wezterm.action.SendString '\x1bb' },
+    { key = 'RightArrow', mods = 'OPT',  action = wezterm.action.SendString '\x1bf' },
+    { key = 'LeftArrow',  mods = 'CTRL', action = wezterm.action.SendString '\x1bb' },
+    { key = 'RightArrow', mods = 'CTRL', action = wezterm.action.SendString '\x1bf' },
 }
 
 return config

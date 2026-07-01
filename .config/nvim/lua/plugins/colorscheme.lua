@@ -1,16 +1,17 @@
 return {
     {
-        "Mofiqul/dracula.nvim",
+        "EdenEast/nightfox.nvim",
         lazy = false,
-        name = "dracula",
         opts = {
-            transparent_bg = true,
+            options = {
+                transparent = true,
+            },
         },
     },
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "dracula",
+            colorscheme = "carbonfox",
         },
     },
 }
