@@ -50,22 +50,57 @@ config.colors = {
     },
 }
 
+-- Claude Code agent state -> tab indicator (set via OSC 1337 SetUserVar by
+-- ~/.claude/hooks/wezterm-claude-state.sh). Non-Claude panes have no var and
+-- render unchanged.
+local CLAUDE_STATE = {
+    running = { icon = '●', color = '#25be6a' }, -- working
+    blocked = { icon = '◐', color = '#f3be7c' }, -- needs answer / permission
+    idle    = { icon = '○', color = '#6e6f70' }, -- finished, waiting
+}
+
 -- Clean tab title: just the process name or title, no index prefix
 wezterm.on('format-tab-title', function(tab, _, _, _, _, _)
-    local title = tab.active_pane.title
+    -- Prefer an explicit tab title (set via `wezterm cli set-tab-title` or
+    -- the rename key binding); fall back to the active pane's process title.
+    local title = tab.tab_title
+    if not title or #title == 0 then
+        title = tab.active_pane.title
+    end
     -- Trim to keep it short
     if #title > 28 then
         title = title:sub(1, 26) .. '…'
     end
     local pad = ' '
-    if tab.is_active then
-        return pad .. title .. pad
-    else
-        return pad .. title .. pad
+
+    -- If a Claude session in this pane reported a state, show a colored dot
+    -- and tint the title text to match.
+    local state = tab.active_pane.user_vars.claude_state
+    local style = state and CLAUDE_STATE[state]
+    if style then
+        return {
+            { Foreground = { Color = style.color } },
+            { Text = pad .. style.icon .. ' ' .. title .. pad },
+        }
     end
+
+    return pad .. title .. pad
 end)
 
 config.keys = {
+    -- Rename the current tab (prompts for a name; empty clears it)
+    {
+        key = 'E',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.PromptInputLine {
+            description = 'Enter new tab name',
+            action = wezterm.action_callback(function(window, _, line)
+                if line ~= nil then
+                    window:active_tab():set_title(line)
+                end
+            end),
+        },
+    },
     {
         key = "Return",
         mods = "CMD",

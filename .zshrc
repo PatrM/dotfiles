@@ -113,6 +113,59 @@ rest() {
     timer 10m -n Rest && terminal-notifier -message 'Pomodoro' -title 'Break is over! Get back to work 😬' -appIcon '~/Pictures/pumpkin.png' -sound Crystal
 }
 
+gac() {
+  # 1. Ensure there are staged changes
+  local diff
+  diff=$(git diff --cached)
+  if [ -z "$diff" ]; then
+    echo "No staged changes found. Run 'git add' first."
+    return 1
+  fi
+
+  # 2. Handle the Jira ticket ID (Argument -> Branch Name Fallback)
+  local ticket_id="$1"
+  
+  if [ -z "$ticket_id" ]; then
+    local branch
+    branch=$(git branch --show-current)
+    # Extract standard Jira formats (e.g., MNB-123) from the branch name
+    ticket_id=$(echo "$branch" | grep -oE '[A-Z]+-[0-9]+' | head -n 1)
+  fi
+
+  # 3. Build the instruction suffix if a ticket was found
+  local suffix_instruction=""
+  if [ -n "$ticket_id" ]; then
+    suffix_instruction=" The description MUST end with the Jira ticket ID, like this: <description> $ticket_id"
+  fi
+
+  # 4. Define the strict prompt
+  # We instruct Claude to avoid double quotes so the resulting terminal command doesn't break
+  local prompt="Analyze the following git diff and generate a semantic commit message.
+Format: <type>(<scope>): <description>
+Types: feat, fix, docs, style, refactor, perf, test, chore.$suffix_instruction
+
+Return ONLY the commit message text. Do NOT wrap in quotes, backticks, or code blocks. Do not add conversational filler. Do NOT use double quotes inside the message.
+
+Diff:
+$diff"
+
+  # 5. Call Claude Code CLI silently, then output the ready-to-use command
+  echo "Generating commit message via Claude (Sonnet)..."
+  
+  local msg
+  msg=$(claude --model sonnet -p "$prompt")
+
+  local cmd="git commit -m \"$msg\""
+
+  # Use printf to avoid any trailing newline weirdness in the clipboard
+  printf "%s" "$cmd" | pbcopy
+
+  echo ""
+  echo "✅ Copied to clipboard! Just paste (Cmd+V) and hit Enter:"
+  echo "$cmd"
+  echo ""
+}
+
 
 # autoload -U promptinit; promptinit
 
@@ -162,3 +215,6 @@ if [ -f '/home/patrick/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/pat
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/patrick/.opencode/bin:$PATH
