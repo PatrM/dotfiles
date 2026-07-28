@@ -17,7 +17,9 @@ config.macos_window_background_blur = 0
 -- Minimal flat tab bar
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = false
-config.hide_tab_bar_if_only_one_tab = true
+-- Keep the tab bar visible even with one tab, so the next-meeting right status
+-- always shows (WezTerm only renders right status when the tab bar is drawn).
+config.hide_tab_bar_if_only_one_tab = false
 config.tab_max_width = 32
 
 -- Carbonfox-matched tab bar colors
@@ -86,6 +88,35 @@ wezterm.on('format-tab-title', function(tab, _, _, _, _, _)
     end
 
     return pad .. title .. pad
+end)
+
+-- Next-meeting indicator in the right status bar.
+-- Reads macOS Calendar (the same EventKit store MeetingBar/Google Calendar feed)
+-- via ~/.config/wezterm/next-meeting.sh. The script call is throttled to once a
+-- minute; the result is cached so per-frame status updates never block the GUI.
+local MEETING_SCRIPT = wezterm.home_dir .. '/.config/wezterm/next-meeting.sh'
+local meeting_cache = ''
+local meeting_last = 0
+
+wezterm.on('update-status', function(window, _)
+    local now = os.time()
+    if now - meeting_last >= 60 then
+        meeting_last = now
+        -- pcall returns (pcall_ok, ...); run_child_process returns (success, stdout, stderr)
+        local pcall_ok, success, stdout = pcall(wezterm.run_child_process, { 'bash', MEETING_SCRIPT })
+        meeting_cache = (pcall_ok and success and stdout) or ''
+    end
+
+    if meeting_cache and #meeting_cache > 0 then
+        window:set_right_status(wezterm.format {
+            { Foreground = { Color = '#78a9ff' } },
+            { Text = ' 󰃰 ' },
+            { Foreground = { Color = '#a8aab0' } },
+            { Text = meeting_cache .. '  ' },
+        })
+    else
+        window:set_right_status('')
+    end
 end)
 
 config.keys = {
