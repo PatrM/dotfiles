@@ -10,7 +10,8 @@ config.font = wezterm.font_with_fallback {
 
 -- Hide macOS title bar, use integrated buttons
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.integrated_title_button_alignment = "Left"
+-- Buttons on the right so they don't overlap herdr's top-left "spaces" sidebar header
+config.integrated_title_button_alignment = "Right"
 config.macos_window_background_blur = 0
 
 -- Minimal flat tab bar
