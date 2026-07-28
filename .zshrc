@@ -202,7 +202,6 @@ auto_venv
 # Added by Antigravity
 export PATH="/Users/patrick/.antigravity/antigravity/bin:$PATH"
 
-<<<<<<< HEAD
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/patrick/google-cloud-sdk/path.zsh.inc' ]; then . '/home/patrick/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -218,8 +217,5 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # opencode
-export PATH=/Users/patrick/.opencode/bin:$PATH
-=======
-# opencode
 export PATH=/home/patrick/.opencode/bin:$PATH
->>>>>>> 979ba5e (local path change)
+export PATH=/Users/patrick/.opencode/bin:$PATH

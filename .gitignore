@@ -2,3 +2,4 @@
 .DS_Store
 .aliases-local
 node_modules/
+.playwright-mcp/

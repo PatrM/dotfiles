@@ -7,11 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
   "cli_default_open_behavior": "existing_window",
-=======
-=======
   "project_panel": {
     "hide_root": false,
     "sticky_scroll": true,
@@ -26,7 +22,6 @@
       }
     }
   },
->>>>>>> c997a0b (minor zed config)
   "agent": {
     "default_model": {
       "provider": "openai",
@@ -40,7 +35,6 @@
   "edit_predictions": {
     "provider": "copilot"
   },
->>>>>>> 659379f (initial commit)
   "format_on_save": "off",
   "telemetry": {
     "diagnostics": false,
@@ -48,10 +42,9 @@
   },
   "vim_mode": true,
   "gutter": {
-      "line_numbers": true
-    },
-    "relative_line_numbers": "enabled",
-
+    "line_numbers": true
+  },
+  "relative_line_numbers": "enabled",
   "use_smartcase_search": true,
   "ui_font_size": 16,
   "buffer_font_size": 16,
