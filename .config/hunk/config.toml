@@ -1,0 +1,65 @@
+# Hunk diff viewer config
+# Theme mirrors WezTerm's `carbonfox` color scheme (see .wezterm.lua) so
+# agent diffs render with the same palette as the terminal.
+theme = "custom"
+
+[custom_theme]
+base = "github-dark-default"
+label = "Carbonfox"
+
+# Surfaces
+background = "#161616"
+panel = "#1c1c1c"
+panelAlt = "#252525"
+border = "#393939"
+accent = "#78a9ff"
+accentMuted = "#33547e"
+text = "#f2f4f8"
+muted = "#6e6f70"
+
+# Diff line backgrounds
+addedBg = "#182c20"
+removedBg = "#2d1721"
+movedAddedBg = "#16233a"
+movedRemovedBg = "#241a3a"
+contextBg = "#161616"
+addedContentBg = "#1d3a29"
+removedContentBg = "#3a1a2a"
+contextContentBg = "#161616"
+addedSignColor = "#25be6a"
+removedSignColor = "#ee5396"
+
+# Gutter
+lineNumberBg = "#161616"
+lineNumberFg = "#484848"
+selectedHunk = "#2a2a2a"
+
+# Badges + file-status accents
+badgeAdded = "#25be6a"
+badgeRemoved = "#ee5396"
+badgeNeutral = "#78a9ff"
+fileNew = "#25be6a"
+fileDeleted = "#ee5396"
+fileRenamed = "#78a9ff"
+fileModified = "#08bdba"
+fileUntracked = "#6e6f70"
+
+# Agent note callouts
+noteBorder = "#393939"
+noteBackground = "#1c1c1c"
+noteTitleBackground = "#252525"
+noteTitleText = "#f2f4f8"
+
+# Syntax highlighting (carbonfox ANSI palette)
+[custom_theme.syntax]
+default = "#f2f4f8"
+keyword = "#be95ff"
+string = "#25be6a"
+comment = "#6e6f70"
+number = "#33b1ff"
+function = "#78a9ff"
+property = "#8cb6ff"
+type = "#08bdba"
+variable = "#f2f4f8"
+operator = "#33b1ff"
+punctuation = "#b6b8bb"
