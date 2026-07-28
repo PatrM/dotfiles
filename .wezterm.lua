@@ -101,16 +101,8 @@ config.keys = {
             end),
         },
     },
-    {
-        key = "Return",
-        mods = "CMD",
-        action = wezterm.action { SplitHorizontal = {} }
-    },
-    {
-        key = "Return",
-        mods = "CMD|SHIFT",
-        action = wezterm.action { SplitVertical = {} }
-    },
+    -- Pane splitting is handled by herdr (the multiplexer), not wezterm, to avoid
+    -- splitting the wrong layer. wezterm stays a single-window outer terminal.
     -- Word navigation (OPT as primary; CTRL works if Mission Control shortcuts are disabled)
     { key = 'LeftArrow',  mods = 'OPT',  action = wezterm.action.SendString '\x1bb' },
     { key = 'RightArrow', mods = 'OPT',  action = wezterm.action.SendString '\x1bf' },

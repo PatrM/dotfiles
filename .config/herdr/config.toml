@@ -1,0 +1,27 @@
+# herdr — managed in dotfiles (stow). Merges over `herdr --default-config`.
+# Multiplexer role: replaces tmux. Prefix stays ctrl+b. Runs inside wezterm.
+onboarding = false
+
+[theme]
+# Inherit wezterm's rendered palette (carbonfox). Auto-tracks the terminal.
+name = "terminal"
+auto_switch = false
+
+[keys]
+# Cycle agents in the agent panel's order. With agent_panel_sort="priority"
+# the panel is attention-first, so prefix+a jumps to the next blocked/waiting agent.
+next_agent = "prefix+a"
+previous_agent = "prefix+shift+a"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+agent_panel_sort = "priority"
+sidebar_collapsed_mode = "hidden"   # prefix+b toggle reclaims full width
+prompt_new_tab_name = false         # prefix+c makes a tab instantly
+
+# Proactive agent alerts (replaces watching wezterm tab dots)
+[ui.toast]
+delivery = "system"   # OS notification even when herdr isn't focused; set "herdr" for in-app only
+
+[ui.sound.agents]
+claude = "on"
