@@ -1,0 +1,101 @@
+/* Waybar — Catppuccin, palette identical to ~/.tmux.conf and hypr/looknfeel.conf
+ *   bg #1e1e28  fg #dadae8  gray #332e41  black4 #575268
+ *   blue #a4b9ef  magenta #c6aae8  red #e38c8f  green #b1e3ad  yellow #ebddaa
+ */
+
+@define-color bg      #1e1e28;
+@define-color fg      #dadae8;
+@define-color gray    #332e41;
+@define-color black4  #575268;
+@define-color blue    #a4b9ef;
+@define-color magenta #c6aae8;
+@define-color red     #e38c8f;
+@define-color green   #b1e3ad;
+@define-color yellow  #ebddaa;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  /* Semi-transparent so the Hyprland layer blur shows through */
+  background: rgba(30, 30, 40, 0.75);
+  color: @fg;
+}
+
+#workspaces {
+  margin: 4px 6px;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  margin: 0 2px;
+  color: @black4;
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  color: @fg;
+  background: @gray;
+}
+
+#workspaces button.active {
+  color: @bg;
+  background: @blue;
+}
+
+#workspaces button.urgent {
+  color: @bg;
+  background: @red;
+}
+
+#clock,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#submap,
+#tray {
+  padding: 0 12px;
+  margin: 4px 2px;
+  background: @gray;
+  border-radius: 6px;
+}
+
+#clock {
+  color: @magenta;
+  font-weight: bold;
+}
+
+#cpu { color: @green; }
+#memory { color: @yellow; }
+#network { color: @blue; }
+#pulseaudio { color: @magenta; }
+
+#pulseaudio.muted {
+  color: @black4;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+#submap {
+  color: @yellow;
+}
+
+tooltip {
+  background: @bg;
+  border: 1px solid @gray;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: @fg;
+}

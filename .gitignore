@@ -1,4 +1,5 @@
 .config/nvim/lua/local-config.lua
+.config/hypr/local.conf
 .DS_Store
 .aliases-local
 node_modules/

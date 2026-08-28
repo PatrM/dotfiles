@@ -1,0 +1,29 @@
+# mako — notification daemon
+# Catppuccin palette, matching waybar/style.css and hypr/looknfeel.conf.
+
+font=JetBrainsMono Nerd Font 11
+background-color=#1e1e28e6
+text-color=#dadae8
+border-color=#a4b9ef
+progress-color=over #332e41
+
+width=380
+height=120
+margin=12
+padding=14
+border-size=2
+border-radius=8
+icon-size=40
+
+default-timeout=6000
+ignore-timeout=false
+layer=overlay
+anchor=top-right
+
+[urgency=low]
+border-color=#575268
+default-timeout=4000
+
+[urgency=critical]
+border-color=#e38c8f
+default-timeout=0
