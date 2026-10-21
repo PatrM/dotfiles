@@ -36,7 +36,8 @@ ZCOMPDUMP=${ZDOTDIR:-$HOME}/.zcompdump
 if [[ -n ${ZCOMPDUMP}(#qN.mh-24) ]]; then
   compinit -C
 else
-  compinit
+  # compinit only rewrites the dump when fpath changes; touch so the 24h check above passes
+  compinit && touch "$ZCOMPDUMP"
 fi
 
 # Prefix-search on arrow keys like the old history-substring-search plugin
@@ -171,7 +172,12 @@ $diff"
 
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# --no-use skips nvm's ~2.5s version resolution; put the default alias' node on PATH directly instead.
+# ponytail: only numeric aliases (e.g. "24") resolve; "lts/*"/"node" need a manual `nvm use`.
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+[ -s "$NVM_DIR/alias/default" ] && nvm_default=($NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)*(N/nOn[1]))
+[[ -n $nvm_default ]] && export PATH="$nvm_default/bin:$PATH"
+unset nvm_default
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export SDKMAN_DIR="$HOME/.sdkman"
