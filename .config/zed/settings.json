@@ -9,6 +9,7 @@
 {
   "cli_default_open_behavior": "existing_window",
   "project_panel": {
+    "dock": "left",
     "hide_root": false,
     "sticky_scroll": true,
     "bold_folder_labels": false

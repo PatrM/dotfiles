@@ -139,7 +139,7 @@ gac() {
   fi
 
   # 4. Define the strict prompt
-  # We instruct Claude to avoid double quotes so the resulting terminal command doesn't break
+  # We instruct pi to avoid double quotes so the resulting terminal command doesn't break
   local prompt="Analyze the following git diff and generate a semantic commit message.
 Format: <type>(<scope>): <description>
 Types: feat, fix, docs, style, refactor, perf, test, chore.$suffix_instruction
@@ -149,11 +149,11 @@ Return ONLY the commit message text. Do NOT wrap in quotes, backticks, or code b
 Diff:
 $diff"
 
-  # 5. Call Claude Code CLI silently, then output the ready-to-use command
-  echo "Generating commit message via Claude (Sonnet)..."
+  # 5. Call pi silently, then output the ready-to-use command
+  echo "Generating commit message via pi (opencode/gpt-5.6-luna)..."
   
   local msg
-  msg=$(claude --model sonnet -p "$prompt")
+  msg=$(pi --provider opencode --model gpt-5.6-luna -nt -ne -ns -np -nc --no-session -p "$prompt")
 
   local cmd="git commit -m \"$msg\""
 
@@ -222,3 +222,19 @@ export PATH=/Users/patrick/.opencode/bin:$PATH
 
 # Added by cua-driver-rs installer — see https://github.com/trycua/cua
 export PATH="/Users/patrick/.local/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/patrick/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# sentry
+fpath=("/Users/patrick/.local/share/zsh/site-functions" $fpath)
+
+# Hermes' Python launcher is not recognized automatically by Herdr.
+# Scope the detection hint to Hermes processes launched inside Herdr.
+hermes() {
+  if [[ ${HERDR_ENV:-} == 1 ]]; then
+    HERDR_AGENT=hermes command hermes "$@"
+  else
+    command hermes "$@"
+  fi
+}

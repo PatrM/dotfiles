@@ -12,6 +12,22 @@ auto_switch = false
 # the panel is attention-first, so prefix+a jumps to the next blocked/waiting agent.
 next_agent = "prefix+a"
 previous_agent = "prefix+shift+a"
+clear_pane = "prefix+ctrl+k"   # clears screen+scrollback, keeps prompt; leaves full-screen apps alone
+
+# Popups overlay the session without touching the tab layout.
+[[keys.command]]
+key = "prefix+shift+l"
+type = "popup"
+command = "lazygit"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "prefix+shift+h"
+type = "popup"
+command = "hunk diff"
+width = "90%"
+height = "90%"
 
 [ui]
 show_agent_labels_on_pane_borders = true
@@ -20,8 +36,20 @@ sidebar_collapsed_mode = "hidden"   # prefix+b toggle reclaims full width
 prompt_new_tab_name = false         # prefix+c makes a tab instantly
 
 # Proactive agent alerts (replaces watching wezterm tab dots)
+status_indicators = "symbols"       # distinct glyphs for blocked/working/done, not just color
+
+# Show each agent's task title (terminal title) so parallel agents stay distinguishable.
+[ui.sidebar.agents.rows_by_agent]
+claude = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+codex  = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+pi     = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+hermes = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+
 [ui.toast]
 delivery = "system"   # OS notification even when herdr isn't focused; set "herdr" for in-app only
 
 [ui.sound.agents]
 claude = "on"
+
+[experimental]
+pane_history = true   # keep pane screen history across full server restarts
