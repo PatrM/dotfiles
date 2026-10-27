@@ -9,7 +9,7 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 mkdir -p $HOME/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PATH=$PATH:$(go env GOPATH)/bin
+export OPENROUTER_API_KEY="$(security find-generic-password -a "$USER" -s OPENROUTER_API_KEY -w 2>/dev/null)"
 
 # Starship optional installation + sourcing
 if ! command -v starship >/dev/null 2>&1; then
@@ -181,11 +181,16 @@ unset nvm_default
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# Lazy sdkman: init costs ~120ms; put current candidates on PATH directly, load the real init on first `sdk`.
+for _c in $SDKMAN_DIR/candidates/*/current(N-/); do
+  export PATH="$_c/bin:$PATH"
+  export ${${_c:h:t}:u}_HOME="$_c"
+done
+unset _c
+sdk() { unfunction sdk; source "$SDKMAN_DIR/bin/sdkman-init.sh" && sdk "$@" }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 
 # Auto-activate Python virtualenv when entering a directory with .venv
