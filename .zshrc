@@ -227,9 +227,6 @@ if [ -f '/home/patrick/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/pat
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# opencode
-export PATH=/home/patrick/.opencode/bin:$PATH
-export PATH=/Users/patrick/.opencode/bin:$PATH
 
 # Added by cua-driver-rs installer — see https://github.com/trycua/cua
 export PATH="/Users/patrick/.local/bin:$PATH"
